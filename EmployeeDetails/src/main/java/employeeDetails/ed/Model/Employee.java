@@ -1,4 +1,4 @@
-package EmployeeDetails.ed.Model;
+package employeeDetails.ed.Model;
 
 import java.util.Date;
 
