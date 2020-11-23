@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import employeeDetails.ed.Dao.EmployeeDao;
@@ -17,6 +19,7 @@ import employeeDetails.ed.Model.Employee;
 public class EmployeeServiceImp implements EmployeeService {
 @Autowired
 EmployeeDao employeeDao;
+
 
 public int saveEmployee(Employee emp)
 {
@@ -50,4 +53,5 @@ public List<Employee> getEmployee(Date startDate,Date endDate)
 public List<Employee> getMaxSalaryEmployee(){
 	return employeeDao.getMaxSalaryEmployee();
 }
+
 }
