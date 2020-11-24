@@ -7,12 +7,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import employeeDetails.ed.Config.AppConfig;
 import employeeDetails.ed.Model.Employee;
 import employeeDetails.ed.Model.Laptop;
-import employeeDetails.ed.Service.EmployeeServiceImp;
+import employeeDetails.ed.Service.EmployeeService;
 import employeeDetails.ed.Service.LaptopService;
-import employeeDetails.ed.Service.LaptopServiceImpl;
 import employeeDetails.ed.Service.OrganizationService;
-import employeeDetails.ed.Service.OrganizationServiceImpl;
-import employeeDetails.ed.exceptions.CustomCheckedException;
 import org.apache.log4j.Logger;
 
 public class AppMain {
@@ -23,11 +20,11 @@ public class AppMain {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		Employee emp = new Employee();
 		Laptop lap = new Laptop();
-	EmployeeServiceImp employeeService = applicationContext.getBean("employeeService", EmployeeServiceImp.class);
+		EmployeeService employeeService = applicationContext.getBean("employeeService", EmployeeService.class);
 	
-		OrganizationService organ = applicationContext.getBean("OrganizationService",OrganizationServiceImpl.class);
+		OrganizationService organ = applicationContext.getBean("OrganizationService",OrganizationService.class);
 		
-		LaptopService laptopService = applicationContext.getBean("LaptopService",LaptopServiceImpl.class);
+		LaptopService laptopService = applicationContext.getBean("LaptopService",LaptopService.class);
 		/*
 		 * if we use impl here than it will gice error because @transactional creates a
 		 * bean whuich is a proxy bean so instead of implemetation bean you will get
@@ -37,15 +34,15 @@ public class AppMain {
 		 */
 
 		
+		
 		  emp.setJoining_date(new Date());
 		  
-		  emp.setName("emp_12558"); emp.setSalary(5265);
-		  System.out.println(emp.toString());
-		  logger.debug("logger is working");
+		  emp.setName("emp_128"); emp.setSalary(5265);
+		  System.out.println(emp.toString()); logger.debug("logger is working");
 		  lap.setAssetBrand("appleP");
+		  
+		  System.out.println(employeeService.saveEmployee(emp));
 		 
-		System.out.println(employeeService.saveEmployee(emp));
-
 		/*
 		 * employeeService.getEmployeeList().forEach((i ->
 		 * System.out.println(i.toString()))); Employee employUp =
@@ -82,5 +79,10 @@ public class AppMain {
 		 
 
 		// organ.callPropogationTypes();
+		
+		/* Second level cache testing */
+		
+		employeeService.getEmployee(2);
+		employeeService.getEmployee(2);
 	}
 }
