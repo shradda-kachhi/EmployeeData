@@ -13,14 +13,17 @@ import employeeDetails.ed.Service.LaptopServiceImpl;
 import employeeDetails.ed.Service.OrganizationService;
 import employeeDetails.ed.Service.OrganizationServiceImpl;
 import employeeDetails.ed.exceptions.CustomCheckedException;
+import org.apache.log4j.Logger;
 
 public class AppMain {
 
+	private static final Logger logger = Logger.getLogger(AppMain.class);
+	
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		Employee emp = new Employee();
 		Laptop lap = new Laptop();
-		//EmployeeServiceImp employeeService = applicationContext.getBean("employeeService", EmployeeServiceImp.class);
+	EmployeeServiceImp employeeService = applicationContext.getBean("employeeService", EmployeeServiceImp.class);
 	
 		OrganizationService organ = applicationContext.getBean("OrganizationService",OrganizationServiceImpl.class);
 		
@@ -33,14 +36,15 @@ public class AppMain {
 		 * [com.sun.proxy.$Proxy28]
 		 */
 
-		emp.setJoining_date(new Date());
-
-		emp.setName("emp_12558");
-		emp.setSalary(5265);
-		System.out.println(emp.toString());
 		
-		lap.setAssetBrand("appleP");
-		//System.out.println(employeeService.saveEmployee(emp));
+		  emp.setJoining_date(new Date());
+		  
+		  emp.setName("emp_12558"); emp.setSalary(5265);
+		  System.out.println(emp.toString());
+		  logger.debug("logger is working");
+		  lap.setAssetBrand("appleP");
+		 
+		System.out.println(employeeService.saveEmployee(emp));
 
 		/*
 		 * employeeService.getEmployeeList().forEach((i ->
@@ -57,12 +61,12 @@ public class AppMain {
 		// employeeService.getMaxSalaryEmployee().forEach((i ->
 		// System.out.println(i.toString())));
 
-		try {
+		/*try {
 			organ.saveEmployeeInfo(emp, lap);
 		} catch (CustomCheckedException e) {
 		System.out.println("exception occuyrred");
 		}
-		
+		*/
 		
 		/*
 		 * If we try to do this we will get 
@@ -70,11 +74,13 @@ public class AppMain {
 		 * i.e it requires  already running transaction toperform that function marked with mandatory
 		 * */
 		
-		/*
-		 * laptopService.saveLaptop(lap); laptopService.testSupport();
-		 * laptopService.testNever(); organ.callPropogationTypes();
-		 * applicationContext.close();
-		 */
+		
+		 // laptopService.saveLaptop(lap);
+	//	  laptopService.testSupport();
+	//	  laptopService.testNever(); 
+	//	  applicationContext.close();
+		 
 
+		// organ.callPropogationTypes();
 	}
 }
