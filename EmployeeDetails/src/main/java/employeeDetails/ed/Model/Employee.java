@@ -2,11 +2,15 @@ package employeeDetails.ed.Model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.Cache;
@@ -29,6 +33,17 @@ public Date joining_date;
 @Column
 public double salary;
 
+@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)//require to ddls childs while only saving parent 
+@JoinColumn(name="insurance")
+private HealthInsurance insurance;
+
+
+public HealthInsurance getInsurance() {
+	return insurance;
+}
+public void setInsurance(HealthInsurance insurance) {
+	this.insurance = insurance;
+}
 public int getId() {
 	return id;
 }
@@ -55,7 +70,8 @@ public void setSalary(double salary) {
 }
 @Override
 public String toString() {
-	return "Employee [id=" + id + ", name=" + name + ", joining_date=" + joining_date + ", salary=" + salary + "]";
+	return "Employee [id=" + id + ", name=" + name + ", joining_date=" + joining_date + ", salary=" + salary
+			+ ", insurance=" + insurance + "]";
 }
 
 }

@@ -41,8 +41,9 @@ public class EmployeeDao {
 	}
 
 	public Employee getEmployee(int id) {
-		 return (Employee) getSession().get(Employee.class, id);
-	
+		Employee employee=  (Employee) getSession().get(Employee.class, id);
+		employee.getInsurance();
+		  return employee;
 	}
 
 	public Employee updateEmployee(Employee emp) {

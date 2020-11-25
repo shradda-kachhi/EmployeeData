@@ -6,25 +6,29 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import employeeDetails.ed.Config.AppConfig;
 import employeeDetails.ed.Model.Employee;
+import employeeDetails.ed.Model.HealthInsurance;
 import employeeDetails.ed.Model.Laptop;
 import employeeDetails.ed.Service.EmployeeService;
 import employeeDetails.ed.Service.LaptopService;
 import employeeDetails.ed.Service.OrganizationService;
+import employeeDetails.ed.exceptions.CustomCheckedException;
+
 import org.apache.log4j.Logger;
 
 public class AppMain {
 
 	private static final Logger logger = Logger.getLogger(AppMain.class);
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws CustomCheckedException {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		Employee emp = new Employee();
 		Laptop lap = new Laptop();
+		HealthInsurance hInsurance = new HealthInsurance();
 		EmployeeService employeeService = applicationContext.getBean("employeeService", EmployeeService.class);
-	
-		OrganizationService organ = applicationContext.getBean("OrganizationService",OrganizationService.class);
-		
-		LaptopService laptopService = applicationContext.getBean("LaptopService",LaptopService.class);
+
+		OrganizationService organ = applicationContext.getBean("OrganizationService", OrganizationService.class);
+
+		LaptopService laptopService = applicationContext.getBean("LaptopService", LaptopService.class);
 		/*
 		 * if we use impl here than it will gice error because @transactional creates a
 		 * bean whuich is a proxy bean so instead of implemetation bean you will get
@@ -32,17 +36,20 @@ public class AppMain {
 		 * [employeeDetails.ed.Service.EmployeeServiceImp], but was actually of type
 		 * [com.sun.proxy.$Proxy28]
 		 */
-
+		/*
+		 * emp.setInsurance(hInsurance);
+		 * 
+		 * emp.setJoining_date(new Date()); emp.setName("emp_128"); emp.setSalary(5265);
+		 * System.out.println(emp.toString());
+		 * 
+		 * lap.setAssetBrand("appleP");
+		 * 
+		 * hInsurance.setInsuranceTyep("premium");
+		 * 
+		 * System.out.println(employeeService.saveEmployee(emp));
+		 */
+		//test  crud
 		
-		
-		  emp.setJoining_date(new Date());
-		  
-		  emp.setName("emp_128"); emp.setSalary(5265);
-		  System.out.println(emp.toString()); logger.debug("logger is working");
-		  lap.setAssetBrand("appleP");
-		  
-		  System.out.println(employeeService.saveEmployee(emp));
-		 
 		/*
 		 * employeeService.getEmployeeList().forEach((i ->
 		 * System.out.println(i.toString()))); Employee employUp =
@@ -58,31 +65,41 @@ public class AppMain {
 		// employeeService.getMaxSalaryEmployee().forEach((i ->
 		// System.out.println(i.toString())));
 
-		/*try {
-			organ.saveEmployeeInfo(emp, lap);
-		} catch (CustomCheckedException e) {
-		System.out.println("exception occuyrred");
-		}
-		*/
+		/*
+		 * try { organ.saveEmployeeInfo(emp, lap); } catch (CustomCheckedException e) {
+		 * System.out.println("exception occuyrred"); }
+		 */
+
+		/*
+		 * If we try to do this we will get Illegaltarancaasction aexception because
+		 * laptop srvice has a propogation of mandatory i.e it requires already running
+		 * transaction toperform that function marked with mandatory
+		 */
+
+		//check diffrent propogations type
 		
 		/*
-		 * If we try to do this we will get 
-		 * Illegaltarancaasction aexception because laptop srvice has a propogation of mandatory
-		 * i.e it requires  already running transaction toperform that function marked with mandatory
-		 * */
-		
-		
-		 // laptopService.saveLaptop(lap);
-	//	  laptopService.testSupport();
-	//	  laptopService.testNever(); 
-	//	  applicationContext.close();
-		 
+		 * laptopService.saveLaptop(lap);
+		 *  laptopService.testSupport();
+		 * laptopService.testNever();
+		 * organ.callPropogationTypes();
+		 */
 
-		// organ.callPropogationTypes();
+		// Second level cache testing
+
+		/*
+		 * employeeService.getEmployee(2); 
+		 * employeeService.getEmployee(2);
+		 */
 		
-		/* Second level cache testing */
-		
-		employeeService.getEmployee(2);
-		employeeService.getEmployee(2);
+		//select query fired with left outer join in eager 
+	//	default is lazy
+	
+		/*
+		 * Employee empCgeck= employeeService.getEmployee(1);
+		 * System.out.println(empCgeck);
+		 * System.out.println(emp.getInsurance().getInsuranceTyep());
+		 * applicationContext.close();
+		 */
 	}
 }
