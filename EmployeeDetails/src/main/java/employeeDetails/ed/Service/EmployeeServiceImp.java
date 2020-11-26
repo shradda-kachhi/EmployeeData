@@ -53,5 +53,18 @@ public List<Employee> getEmployee(Date startDate,Date endDate)
 public List<Employee> getMaxSalaryEmployee(){
 	return employeeDao.getMaxSalaryEmployee();
 }
+public Employee getEmployeeUseFetch(int emp)
+{
+	return employeeDao.getEmployeeUseFetch(emp);
+}
+
+@Override
+public Employee getEmployeeUseFetch() {
+	
+	Employee emp= employeeDao.getEmployeeUseFetch();
+	System.out.println(emp.getInsurance().getInsuranceTyep());
+	emp.getMobileList().forEach(i->System.out.println(i.getMobileBrand()));
+	return emp;
+}
 
 }

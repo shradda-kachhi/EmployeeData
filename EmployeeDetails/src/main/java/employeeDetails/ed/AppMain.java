@@ -1,6 +1,7 @@
 package employeeDetails.ed;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -8,6 +9,7 @@ import employeeDetails.ed.Config.AppConfig;
 import employeeDetails.ed.Model.Employee;
 import employeeDetails.ed.Model.HealthInsurance;
 import employeeDetails.ed.Model.Laptop;
+import employeeDetails.ed.Model.Mobile;
 import employeeDetails.ed.Service.EmployeeService;
 import employeeDetails.ed.Service.LaptopService;
 import employeeDetails.ed.Service.OrganizationService;
@@ -23,7 +25,9 @@ public class AppMain {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		Employee emp = new Employee();
 		Laptop lap = new Laptop();
+
 		HealthInsurance hInsurance = new HealthInsurance();
+		logger.info("sftddddddddddddddddddddddddddddddddddddddd");
 		EmployeeService employeeService = applicationContext.getBean("employeeService", EmployeeService.class);
 
 		OrganizationService organ = applicationContext.getBean("OrganizationService", OrganizationService.class);
@@ -36,20 +40,27 @@ public class AppMain {
 		 * [employeeDetails.ed.Service.EmployeeServiceImp], but was actually of type
 		 * [com.sun.proxy.$Proxy28]
 		 */
-		/*
-		 * emp.setInsurance(hInsurance);
-		 * 
-		 * emp.setJoining_date(new Date()); emp.setName("emp_128"); emp.setSalary(5265);
-		 * System.out.println(emp.toString());
-		 * 
-		 * lap.setAssetBrand("appleP");
-		 * 
-		 * hInsurance.setInsuranceTyep("premium");
-		 * 
-		 * System.out.println(employeeService.saveEmployee(emp));
-		 */
-		//test  crud
+
 		
+		  emp.setInsurance(hInsurance);
+		  
+		  emp.setJoining_date(new Date()); emp.setName("emp_1"); emp.setSalary(5265);
+		  System.out.println(emp.toString());
+		  
+		  lap.setAssetBrand("hp");
+		  
+		  hInsurance.setInsuranceTyep("gold");
+		  
+		  List<Mobile> mobList = emp.getMobileList(); for (int i = 0; i < 5; i++) {
+		  Mobile mo = new Mobile(); mo.setMobileBrand("brand__" + i);
+		  mo.setAllocatedTo(emp); mobList.add(mo); }
+		  
+		  
+		  System.out.println(employeeService.saveEmployee(emp));
+		  
+		 
+		// test crud
+
 		/*
 		 * employeeService.getEmployeeList().forEach((i ->
 		 * System.out.println(i.toString()))); Employee employUp =
@@ -76,30 +87,25 @@ public class AppMain {
 		 * transaction toperform that function marked with mandatory
 		 */
 
-		//check diffrent propogations type
-		
+		// check diffrent propogations type
+
 		/*
-		 * laptopService.saveLaptop(lap);
-		 *  laptopService.testSupport();
-		 * laptopService.testNever();
-		 * organ.callPropogationTypes();
+		 * laptopService.saveLaptop(lap); laptopService.testSupport();
+		 * laptopService.testNever(); organ.callPropogationTypes();
 		 */
 
 		// Second level cache testing
 
 		/*
-		 * employeeService.getEmployee(2); 
-		 * employeeService.getEmployee(2);
+		 * employeeService.getEmployee(2); employeeService.getEmployee(2);
 		 */
-		
-		//select query fired with left outer join in eager 
-	//	default is lazy
-	
-		/*
-		 * Employee empCgeck= employeeService.getEmployee(1);
-		 * System.out.println(empCgeck);
-		 * System.out.println(emp.getInsurance().getInsuranceTyep());
-		 * applicationContext.close();
-		 */
+
+		// select query fired with left outer join in eager
+		// default is lazy
+
+		employeeService.getEmployeeUseFetch();
+		// System.out.println(emp.getInsurance().getInsuranceTyep());
+		applicationContext.close();
+
 	}
 }

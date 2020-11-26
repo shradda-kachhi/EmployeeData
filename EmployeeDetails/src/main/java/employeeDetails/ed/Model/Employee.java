@@ -1,6 +1,8 @@
 package employeeDetails.ed.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -24,7 +27,7 @@ public class Employee {
 @Id
 @SequenceGenerator(initialValue =16,allocationSize = 1,name = "employee_seq",sequenceName = "employee_seq")
 @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "employee_seq")
-
+@Column(name = "employeeId")
 public int id;
 @Column
 public String name;
@@ -33,10 +36,13 @@ public Date joining_date;
 @Column
 public double salary;
 
-@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)//require to ddls childs while only saving parent 
+
+@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)//cascade require to ddls childs while only saving parent 
 @JoinColumn(name="insurance")
 private HealthInsurance insurance;
 
+@OneToMany(mappedBy = "allocatedTo" ,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+private List<Mobile> mobileList = new ArrayList();
 
 public HealthInsurance getInsurance() {
 	return insurance;
@@ -67,6 +73,13 @@ public double getSalary() {
 }
 public void setSalary(double salary) {
 	this.salary = salary;
+}
+
+public List<Mobile> getMobileList() {
+	return mobileList;
+}
+public void setMobileList(List<Mobile> mobileList) {
+	this.mobileList = mobileList;
 }
 @Override
 public String toString() {
