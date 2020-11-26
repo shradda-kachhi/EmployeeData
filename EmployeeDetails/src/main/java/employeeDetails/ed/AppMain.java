@@ -3,6 +3,8 @@ package employeeDetails.ed;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import employeeDetails.ed.Config.AppConfig;
@@ -15,12 +17,11 @@ import employeeDetails.ed.Service.LaptopService;
 import employeeDetails.ed.Service.OrganizationService;
 import employeeDetails.ed.exceptions.CustomCheckedException;
 
-import org.apache.log4j.Logger;
+
 
 public class AppMain {
 
-	private static final Logger logger = Logger.getLogger(AppMain.class);
-
+	private static final Logger logger = LogManager.getLogger(AppMain.class);
 	public static void main(String[] args) throws CustomCheckedException {
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		Employee emp = new Employee();
@@ -42,6 +43,7 @@ public class AppMain {
 		 */
 
 		
+		
 		  emp.setInsurance(hInsurance);
 		  
 		  emp.setJoining_date(new Date()); emp.setName("emp_1"); emp.setSalary(5265);
@@ -57,6 +59,7 @@ public class AppMain {
 		  
 		  
 		  System.out.println(employeeService.saveEmployee(emp));
+		 
 		  
 		 
 		// test crud
@@ -103,7 +106,7 @@ public class AppMain {
 		// select query fired with left outer join in eager
 		// default is lazy
 
-		employeeService.getEmployeeUseFetch();
+		//employeeService.getEmployeeUseFetch();
 		// System.out.println(emp.getInsurance().getInsuranceTyep());
 		applicationContext.close();
 
