@@ -12,32 +12,32 @@ import javax.swing.JTextField;
 public class HelloFrame extends JFrame {
 
 	public HelloFrame() {
-		// default layout is CardLayout and it wll overwrite the label
+		// default layout is CardLayout and it will overwrite the label
 		// there are grid flow and null
 		setLayout(new FlowLayout());
 		setVisible(true);
-		setSize(300, 300);
+		setSize(400, 400);
 		JLabel label = new JLabel("Hello WOrld");
 		
 		JTextField field1 = new JTextField(20);
 		JTextField field2 = new JTextField(20);
-		JButton button = new JButton("OK");
+		JButton button1 = new JButton("Add");
+		JButton button2 = new JButton("SUbtract");
+		
 		JLabel result = new JLabel();
 		
-		ActionListener action = new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				result.setText(Integer.parseInt(field1.getText())+Integer.parseInt(field2.getText())+"");
-				
-			}
-		};
-		button.addActionListener(action);
+		ActionListener action = ( e) ->	result.setText(Integer.parseInt(field1.getText())+Integer.parseInt(field2.getText())+"");
+		
+		ActionListener action2 = ( e) ->	result.setText(Integer.parseInt(field1.getText())-Integer.parseInt(field2.getText())+"");
+		button1.addActionListener(action);
+		
+		button2.addActionListener(action2);
 		
 		add(label);
 		add(field1);
 		add(field2);
-		add(button);
+		add(button1);
+		add(button2);
 		add(result);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		;
