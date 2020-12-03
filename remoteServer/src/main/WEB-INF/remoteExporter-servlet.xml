@@ -15,15 +15,8 @@
 	<mvc:annotation-driven />
 
 
-	<context:component-scan
-		base-package="remoteServer.services" />
+	<context:component-scan		base-package="remoteServer.config" />
 
-	<bean name="remoteExporter"
-		class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
-		<property name="service" ref="remoteService" />
-		<property name="serviceInterface"
-			value="remoteServer.services.RemoteServerInterface" />
-	</bean>
 
 
 </beans>

@@ -18,7 +18,7 @@ public class AppConfigClient
 public 	HttpInvokerProxyFactoryBean getbean()
 {
 		HttpInvokerProxyFactoryBean bean = new HttpInvokerProxyFactoryBean();
-		bean.setServiceUrl("http://localhost:8080/");
+		bean.setServiceUrl("http://localhost:8080/remoteServer/remoteExporter");
 		bean.setServiceInterface(RemoteServerInterface.class);
 		return bean;
 }

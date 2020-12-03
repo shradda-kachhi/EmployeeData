@@ -20,7 +20,7 @@ public class AppConfigServer
 	@Qualifier("remoteService")
 	RemoteServerInterface remoteService;
 	
-//@Bean(name="remoteExporter")
+@Bean(name="remoteExporter")
 
 public 	HttpInvokerServiceExporter getbean()
 {
