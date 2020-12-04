@@ -16,6 +16,6 @@ public class AppClient
     	AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(remoteClient.config.AppConfigClient.class);
    
     	RemoteServerInterface interfaceR =applicationContext.getBean("remoteService",RemoteServerInterface.class);
-    	interfaceR.sayHelloWorld();
+    	System.out.println(interfaceR.sayHelloWorld());
     }
 }

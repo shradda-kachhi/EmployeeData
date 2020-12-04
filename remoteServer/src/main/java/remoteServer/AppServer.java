@@ -11,10 +11,13 @@ import remoteServer.services.RemoteServerInterface;
  */
 public class AppServer 
 {
-    public static void main( String[] args )
-    {
-    	AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(remoteServer.config.AppConfigServer.class);
- 
-    	
-    }
+	/*
+	 * public static void main( String[] args ) { AnnotationConfigApplicationContext
+	 * applicationContext = new
+	 * AnnotationConfigApplicationContext(remoteServer.config.AppConfigServer.class)
+	 * ;
+	 * 
+	 * 
+	 * }
+	 */
 }
