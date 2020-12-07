@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 public class RemoteServiceImpl implements RemoteServerInterface {
 
 	public String sayHelloWorld() {
-		System.out.println("call inside server");
-	return "insised server";
+		System.out.println("call inside server is made from client");
+	return "insised server ";
 
 	}
 

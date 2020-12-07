@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="LogToConsole" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Logger name="employeeDetails.ed" level="debug"
+			additivity="false">
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+
+		<!-- Log everything in hibernate -->
+		<Logger name="org.hibernate" level="debug" additivity="false">
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+
+		<!-- Log all SQL statements -->
+		<Logger name="org.hibernate.SQL" level="debug"
+			additivity="false">
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+        
+        <Logger name="org.springframework.transaction" level="trace"
+			additivity="false">
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+		<Logger name="org.springframework.orm" level="trace"
+			additivity="false">
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+		<Root level="error">
+			<AppenderRef ref="LogToConsole" />
+		</Root>
+	</Loggers>
+</Configuration>

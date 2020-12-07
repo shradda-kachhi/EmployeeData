@@ -1,48 +1,27 @@
-package employeeDetails.ed.Model;
+package remoteClient.model;
+
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-
-
-@Entity
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Employee implements Serializable{
-@Id
-@SequenceGenerator(initialValue =16,allocationSize = 1,name = "employee_seq",sequenceName = "employee_seq")
-@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "employee_seq")
-@Column(name = "employeeId")
+
 public int id;
-@Column
+
 public String name;
-@Column
+
 public Date joining_date;
-@Column
+
 public double salary;
 
 
-@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)//cascade require to ddls childs while only saving parent 
-@JoinColumn(name="insurance")
 private HealthInsurance insurance;
 
-@OneToMany(mappedBy = "allocatedTo" ,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
 private List<Mobile> mobileList = new ArrayList();
 
 public HealthInsurance getInsurance() {
