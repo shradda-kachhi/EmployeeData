@@ -1,6 +1,6 @@
 package remoteClient.services;
 
-import remoteClient.model.Employee;
+import cc.models.Employee;
 
 public interface RemoteServerInterface {
 	 public String sayHelloWorld();

@@ -24,7 +24,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
-public class Employee implements Serializable{
+public class Employee {
 @Id
 @SequenceGenerator(initialValue =16,allocationSize = 1,name = "employee_seq",sequenceName = "employee_seq")
 @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "employee_seq")

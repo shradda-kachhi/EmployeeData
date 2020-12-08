@@ -1,6 +1,6 @@
 package employeeDetails.ed.Service;
 
-import employeeDetails.ed.Model.Employee;
+import cc.models.Employee;
 
 public interface RemoteServerInterface {
  public String sayHelloWorld();

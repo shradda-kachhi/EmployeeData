@@ -3,7 +3,9 @@ package employeeDetails.ed.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import employeeDetails.ed.Model.Employee;
+import cc.models.Employee;
+
+
 
 @Service("remoteService")
 public class RemoteServerImpl implements RemoteServerInterface {
@@ -19,7 +21,10 @@ public class RemoteServerImpl implements RemoteServerInterface {
 	@Override
 	public Employee remoteGetEmployee(int id) {
 		
-		return  employeeService.getEmployee(id);
+	employeeDetails.ed.Model.Employee empEntity=  employeeService.getEmployee(id);
+		Employee emp= new Employee();
+		emp.setName("sheterhb");
+		return emp;
 	}
 
 }

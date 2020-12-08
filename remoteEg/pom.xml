@@ -68,6 +68,12 @@
 			<version>4.1.2.RELEASE</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>CommonClasses</groupId>
+			<artifactId>CC</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>C:\Users\shraddak\.m2\repository\CommonClasses\CC\0.0.1-SNAPSHOT\CC-0.0.1-SNAPSHOT.jar</systemPath>
+		</dependency>
 	</dependencies>
 </project>

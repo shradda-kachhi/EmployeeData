@@ -16,4 +16,5 @@ public interface EmployeeService {
 	public Employee getEmployeeUseFetch(int emp);
 	
 	public  Employee  getEmployeeUseFetch();
+	public List<Employee> getMaxSalaryEmployee();
 }

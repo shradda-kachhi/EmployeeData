@@ -2,6 +2,9 @@ package remoteServer.services;
 
 import org.springframework.stereotype.Service;
 
+import cc.models.Employee;
+
+
 @Service("remoteService")
 public class RemoteServiceImpl implements RemoteServerInterface {
 
@@ -10,5 +13,12 @@ public class RemoteServiceImpl implements RemoteServerInterface {
 	return "insised server ";
 
 	}
-
+	@Override
+	public Employee remoteGetEmployee(int id) {
+		
+		//return  employeeService.getEmployee(id);
+		Employee emp= new Employee();
+		emp.setName("Shradda");
+		return emp;
+	}
 }

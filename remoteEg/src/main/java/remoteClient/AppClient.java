@@ -1,5 +1,4 @@
 package remoteClient;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import remoteClient.services.RemoteServerInterface;
