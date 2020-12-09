@@ -1,18 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>EmployeeDetails</groupId>
-	<artifactId>ed</artifactId>
+	<groupId>RemoteExample</groupId>
+	<artifactId>remoteEg</artifactId>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-
-	<name>ed</name>
-	<!-- FIXME change it to the project's website -->
-	<url>Employee Details</url>
-
+	<name>remoteEg</name>
+	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.11</maven.compiler.source>
@@ -56,39 +51,6 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-
-		<!-- Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-ehcache</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-
-		<!-- postgresql -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.4-1200-jdbc41</version>
-		</dependency>
-		<!-- ecache dependecy -->
-		<dependency>
-			<groupId>net.sf.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>2.10.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -105,12 +67,6 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>4.1.2.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>CommonClasses</groupId>
@@ -119,12 +75,5 @@
 			<scope>system</scope>
 			<systemPath>C:\Users\shraddak\.m2\repository\CommonClasses\CC\0.0.1-SNAPSHOT\CC-0.0.1-SNAPSHOT.jar</systemPath>
 		</dependency>
-
-
-	<dependency>
-		<groupId>org.modelmapper</groupId>
-		<artifactId>modelmapper</artifactId>
-		<version>2.3.5</version>
-	</dependency>
 	</dependencies>
 </project>

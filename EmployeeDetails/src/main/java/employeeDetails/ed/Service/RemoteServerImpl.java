@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cc.models.Employee;
+import cc.models.HealthInsurance;
+import cc.remoteInterface.RemoteServerInterface;
+
 
 
 
@@ -21,10 +24,8 @@ public class RemoteServerImpl implements RemoteServerInterface {
 	@Override
 	public Employee remoteGetEmployee(int id) {
 		
-	employeeDetails.ed.Model.Employee empEntity=  employeeService.getEmployee(id);
-		Employee emp= new Employee();
-		emp.setName("sheterhb");
-		return emp;
-	}
+		return employeeService.getEmployee(id);
+		
+		 }
 
 }

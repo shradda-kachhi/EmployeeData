@@ -3,8 +3,7 @@ package employeeDetails.ed.Service;
 import java.util.Date;
 import java.util.List;
 
-
-
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -19,6 +18,8 @@ import employeeDetails.ed.Model.Employee;
 public class EmployeeServiceImp implements EmployeeService {
 @Autowired
 EmployeeDao employeeDao;
+@Autowired
+ModelMapper modelMapper;
 
 
 public int saveEmployee(Employee emp)
@@ -31,9 +32,12 @@ public List<Employee> getEmployeeList()
 	return employeeDao.getAllEmployee();
 }
 
-public Employee getEmployee(int id)
+public cc.models.Employee getEmployee(int id)
 {
-	return employeeDao.getEmployee(id);
+	
+	Employee empEntity= employeeDao.getEmployee(id);
+	cc.models.Employee emloyeModel=modelMapper.map(empEntity, cc.models.Employee.class);
+	return emloyeModel;
 }
 
 public Employee updateEmployee(Employee emp)

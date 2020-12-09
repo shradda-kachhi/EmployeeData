@@ -9,7 +9,7 @@ public interface EmployeeService {
 
 	public int saveEmployee(Employee emp);
 
-	public Employee getEmployee(int id);
+	public cc.models.Employee getEmployee(int id);
 
 	public Employee updateEmployee(Employee emp);
 

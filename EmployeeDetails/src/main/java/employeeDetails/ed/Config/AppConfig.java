@@ -1,5 +1,6 @@
 package employeeDetails.ed.Config;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -7,13 +8,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import employeeDetails.ed.Service.RemoteServerInterface;
+import cc.remoteInterface.RemoteServerInterface;
+
 
 
 
 
 @Configuration
-@ComponentScan({ "EmployeeDetails.ed" })
+@ComponentScan({ "employeeDetails.ed" })
 @EnableTransactionManagement(proxyTargetClass = true)
 public class AppConfig {
 
@@ -26,6 +28,11 @@ public class AppConfig {
 		exporter.setService(remoteService);
 		exporter.setServiceInterface(RemoteServerInterface.class);
 		return exporter;
+	}
+	@Bean
+	public ModelMapper getModelMapper()
+	{
+		return new ModelMapper();
 	}
 
 }
