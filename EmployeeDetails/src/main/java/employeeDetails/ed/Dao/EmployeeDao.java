@@ -92,6 +92,11 @@ public class EmployeeDao {
 		return query.list();
 	}
 	
+	public void insertEMpProcedure()
+	{
+		getSession().createQuery("select insertmeployee(2,'January 8,2020','shradda',4500,1)").uniqueResult();
+	}
+	
 
 	
 }

@@ -32,8 +32,8 @@ public class AppMain {
 		  
 		 // HealthInsurance hInsurance = new HealthInsurance();
 		  //logger.info("sftddddddddddddddddddddddddddddddddddddddd");
-	//	EmployeeService		  employeeService = applicationContext.getBean("employeeService",		  EmployeeService.class);
-		 
+		EmployeeService		  employeeService = applicationContext.getBean("employeeService",		  EmployeeService.class);
+	//	 employeeService.insertProCall();
 
 	//	 RemoteServerInterface remote =		 applicationContext.getBean("remoteService",RemoteServerInterface.class);
 	//	 System.out.println(remote.remoteGetEmployee(1).getInsurance().getInsuranceTyep());

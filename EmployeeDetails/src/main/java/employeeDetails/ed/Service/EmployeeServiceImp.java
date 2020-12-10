@@ -71,4 +71,10 @@ public Employee getEmployeeUseFetch() {
 	return emp;
 }
 
+@Override
+public void insertProCall() {
+	employeeDao.insertEMpProcedure();
+	
+}
+
 }

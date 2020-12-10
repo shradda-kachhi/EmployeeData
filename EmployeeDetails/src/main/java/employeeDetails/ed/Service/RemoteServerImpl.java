@@ -21,11 +21,12 @@ public class RemoteServerImpl implements RemoteServerInterface {
  return "returned  from Employee server";
 	}
 
-	@Override
-	public Employee remoteGetEmployee(int id) {
-		
-		return employeeService.getEmployee(id);
-		
-		 }
+	
+	  @Override public Employee remoteGetEmployee(int id) {
+	  
+	  return employeeService.getEmployee(id);
+	  
+	  }
+	 
 
 }

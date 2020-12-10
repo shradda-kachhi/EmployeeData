@@ -14,43 +14,46 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import cc.models.Employee;
-import sd.service.EmployeeDetailsService;
+import sd.AppClient;
 
-@Component("EmployeeInfo")
 public class EmployeeInfo extends JFrame {
-	@Autowired
-	@Qualifier("employeeService")
-	EmployeeDetailsService service;
 
 	JTextField emp;
 	JButton submit;
-	JLabel label;
+	JLabel labelName, labelSalary;
 
 	public EmployeeInfo() {
+
+		somefun();
+
+	}
+
+	public void somefun() {
 		setVisible(true);
 		setSize(500, 400);
 		setLayout(new FlowLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		emp = new JTextField(10);
 		submit = new JButton("Submit");
-		label = new JLabel();
-		
-		somefun();
+		labelName = new JLabel();
+		labelSalary = new JLabel();
 
-	}
-	public void somefun()
-	{
 		add(emp);
 		add(submit);
-		add(label);
+		add(labelName);
+		add(labelSalary);
 		submit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int v = Integer.parseInt(emp.getText());
-				System.out.println(service);
-				Employee emp = service.getEmpById(v);
-				label.setText(emp.getName());
+
+				
+
+Employee emp=new AppClient().getEmployeeInfo(v);
+				  labelName.setText(emp.getName());
+				  labelSalary.setText(emp.getSalary()+"")
+				 ;
 			}
 		});
 	}

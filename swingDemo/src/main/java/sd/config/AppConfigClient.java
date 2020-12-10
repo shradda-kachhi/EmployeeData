@@ -11,17 +11,17 @@ import cc.remoteInterface.RemoteServerInterface;
 
 
 @Configuration
-@ComponentScan(basePackages = {"sd.config","sd.service","sd.swingDemo"})
+@ComponentScan("sd.config")
 public class AppConfigClient 
 {
 	
 @Bean(name="remoteService")
-public 	RemoteServerInterface getbean()
+public 	HttpInvokerProxyFactoryBean getbean()
 {
 		HttpInvokerProxyFactoryBean bean = new HttpInvokerProxyFactoryBean();
 		//bean.setServiceUrl("http://localhost:8080/remoteServer/remoteExporter");
 		bean.setServiceUrl("http://localhost:8080/EmployeeDetails/remoteExporter");
 		bean.setServiceInterface(RemoteServerInterface.class);
-		return (RemoteServerInterface) bean.getObject();
+		return bean;
 }
 }
