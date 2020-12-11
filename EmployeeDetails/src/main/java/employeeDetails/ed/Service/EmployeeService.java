@@ -1,5 +1,6 @@
 package employeeDetails.ed.Service;
 
+import java.util.Date;
 import java.util.List;
 
 import employeeDetails.ed.Model.Employee;
@@ -17,5 +18,5 @@ public interface EmployeeService {
 	
 	public  Employee  getEmployeeUseFetch();
 	public List<Employee> getMaxSalaryEmployee();
-	public void insertProCall();
+	public void insertProCall(int id,Date doj,String nme,int sal,int lapid);
 }

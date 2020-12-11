@@ -50,6 +50,7 @@ public class HibernateConfig {
 		properties.put("hibernate.cache.region.factory_class", env.getProperty("hibernate.cache.region.factory_class"));
 		properties.put("hibernate.cache.use_second_level_cache",
 				env.getProperty("hibernate.cache.use_second_level_cache"));
+		properties.put("hibernate.jdbc.time_zone", "UTC");
 		return properties;
 	}
 

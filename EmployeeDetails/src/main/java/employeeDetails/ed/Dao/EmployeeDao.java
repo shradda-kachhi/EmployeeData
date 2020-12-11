@@ -1,5 +1,6 @@
 package employeeDetails.ed.Dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -8,14 +9,12 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.type.DateType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import employeeDetails.ed.Model.Employee;
+
 
 @Repository
 
@@ -46,20 +45,21 @@ public class EmployeeDao {
 
 	public Employee getEmployeeUseFetch(int id) {
 		Query query = getSession().createQuery("from Employee a join fetch a.insurance where a.id=" + id);
-		Employee ep=(Employee) query.uniqueResult();
-		System.out.println("inside Dao "+ep.getInsurance().getInsuranceTyep());
+		Employee ep = (Employee) query.uniqueResult();
+		System.out.println("inside Dao " + ep.getInsurance().getInsuranceTyep());
 		return ep;
 
 	}
-	
+
 	public Employee getEmployeeUseFetch() {
 		Query query = getSession().createQuery("from Employee e join fetch e.mobileList where e.id=1");
-		Employee ep=(Employee) query.uniqueResult();
-	//System.out.println("inside Dao "+ep.getInsurance().getInsuranceTyep());
-		
+		Employee ep = (Employee) query.uniqueResult();
+		// System.out.println("inside Dao "+ep.getInsurance().getInsuranceTyep());
+
 		return ep;
 
 	}
+
 	public Employee getEmployee(int id) {
 		Employee employee = (Employee) getSession().get(Employee.class, id);
 		return employee;
@@ -91,12 +91,18 @@ public class EmployeeDao {
 		query.addEntity(Employee.class);
 		return query.list();
 	}
-	
-	public void insertEMpProcedure()
-	{
-		getSession().createQuery("select insertmeployee(2,'January 8,2020','shradda',4500,1)").uniqueResult();
-	}
-	
+	public void insertEMpProcedure(int id, Date doj, String nme, int sal, int lapid) {
+		SimpleDateFormat formaat = new SimpleDateFormat("yyyy-mm-dd");
+		System.out.println(doj);
+		SQLQuery qury = getSession().createSQLQuery("select public.insertmeployee(:empId,:joiningDate \\:\\: date,:name,:salary,:laptopId)");
+		qury.setParameter("empId", id);
+		qury.setParameter("joiningDate","January 8, 2202" );
+		qury.setParameter("name", nme);
+		qury.setParameter("salary", sal);
+		qury.setParameter("laptopId", lapid);
 
-	
+		qury.uniqueResult();
+		
+	}
+
 }

@@ -32,8 +32,13 @@ public class AppMain {
 		  
 		 // HealthInsurance hInsurance = new HealthInsurance();
 		  //logger.info("sftddddddddddddddddddddddddddddddddddddddd");
-		EmployeeService		  employeeService = applicationContext.getBean("employeeService",		  EmployeeService.class);
-	//	 employeeService.insertProCall();
+		EmployeeService		  employeeService = applicationContext.getBean("employeeService", EmployeeService.class);
+		 try {
+			employeeService.insertProCall(25,new Date(),"employee 1",2000,1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	//	 RemoteServerInterface remote =		 applicationContext.getBean("remoteService",RemoteServerInterface.class);
 	//	 System.out.println(remote.remoteGetEmployee(1).getInsurance().getInsuranceTyep());
