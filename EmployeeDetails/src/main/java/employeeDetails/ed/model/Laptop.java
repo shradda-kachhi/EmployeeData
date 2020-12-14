@@ -1,4 +1,4 @@
-package employeeDetails.ed.Model;
+package employeeDetails.ed.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

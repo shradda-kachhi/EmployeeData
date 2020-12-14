@@ -1,13 +1,13 @@
-package employeeDetails.ed.Service;
+package employeeDetails.ed.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import employeeDetails.ed.Dao.LaptopDao;
-import employeeDetails.ed.Model.Laptop;
+import employeeDetails.ed.dao.LaptopDao;
 import employeeDetails.ed.exceptions.CustomCheckedException;
+import employeeDetails.ed.model.Laptop;
 
 @Service("LaptopService")
 public class LaptopServiceImpl implements LaptopService {

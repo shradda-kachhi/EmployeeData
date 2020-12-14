@@ -1,8 +1,8 @@
-package employeeDetails.ed.Service;
+package employeeDetails.ed.service;
 
-import employeeDetails.ed.Model.Employee;
-import employeeDetails.ed.Model.Laptop;
 import employeeDetails.ed.exceptions.CustomCheckedException;
+import employeeDetails.ed.model.Employee;
+import employeeDetails.ed.model.Laptop;
 
 public interface OrganizationService {
 

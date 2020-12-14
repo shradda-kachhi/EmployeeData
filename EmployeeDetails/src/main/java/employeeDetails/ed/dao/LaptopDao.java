@@ -1,11 +1,11 @@
-package employeeDetails.ed.Dao;
+package employeeDetails.ed.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import employeeDetails.ed.Model.Laptop;
+import employeeDetails.ed.model.Laptop;
 
 @Repository
 public class LaptopDao {

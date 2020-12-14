@@ -1,4 +1,4 @@
-package employeeDetails.ed.Dao;
+package employeeDetails.ed.dao;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +13,8 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.DateType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import employeeDetails.ed.Model.Employee;
+
+import employeeDetails.ed.model.Employee;
 
 
 @Repository
@@ -96,7 +97,7 @@ public class EmployeeDao {
 		System.out.println(doj);
 		SQLQuery qury = getSession().createSQLQuery("select public.insertmeployee(:empId,:joiningDate \\:\\: date,:name,:salary,:laptopId)");
 		qury.setParameter("empId", id);
-		qury.setParameter("joiningDate","January 8, 2202" );
+		qury.setParameter("joiningDate",doj );
 		qury.setParameter("name", nme);
 		qury.setParameter("salary", sal);
 		qury.setParameter("laptopId", lapid);

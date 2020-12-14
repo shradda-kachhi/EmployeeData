@@ -1,4 +1,4 @@
-package employeeDetails.ed.Model;
+package employeeDetails.ed.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;

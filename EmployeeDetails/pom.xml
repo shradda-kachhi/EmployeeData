@@ -89,7 +89,7 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<!--for spring remoting -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -100,6 +100,7 @@
 			<artifactId>spring-web</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
@@ -111,7 +112,20 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Aop dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.8</version>
+		</dependency>
 
+
+		<!-- cOMMON CLASSES FOR REMOTE INvocation of ethods through http invoker -->
 		<dependency>
 			<groupId>CommonClasses</groupId>
 			<artifactId>CC</artifactId>
@@ -126,5 +140,7 @@
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.5</version>
 		</dependency>
+
+
 	</dependencies>
 </project>

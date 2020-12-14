@@ -1,10 +1,11 @@
-package employeeDetails.ed.Config;
+package employeeDetails.ed.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -16,7 +17,8 @@ import cc.remoteInterface.RemoteServerInterface;
 
 @Configuration
 @ComponentScan({ "employeeDetails.ed" })
-@EnableTransactionManagement(proxyTargetClass = true)
+@EnableTransactionManagement
+@EnableAspectJAutoProxy
 public class AppConfig {
 
 	 @Autowired

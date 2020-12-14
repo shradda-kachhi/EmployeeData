@@ -1,4 +1,4 @@
-package employeeDetails.ed.Config;
+package employeeDetails.ed.config;
 
 import java.util.Properties;
 

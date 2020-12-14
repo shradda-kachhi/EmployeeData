@@ -9,15 +9,15 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import cc.remoteInterface.RemoteServerInterface;
-import employeeDetails.ed.Config.AppConfig;
-import employeeDetails.ed.Model.Employee;
-import employeeDetails.ed.Model.HealthInsurance;
-import employeeDetails.ed.Model.Laptop;
-import employeeDetails.ed.Model.Mobile;
-import employeeDetails.ed.Service.EmployeeService;
-import employeeDetails.ed.Service.LaptopService;
-import employeeDetails.ed.Service.OrganizationService;
+import employeeDetails.ed.config.AppConfig;
 import employeeDetails.ed.exceptions.CustomCheckedException;
+import employeeDetails.ed.model.Employee;
+import employeeDetails.ed.model.HealthInsurance;
+import employeeDetails.ed.model.Laptop;
+import employeeDetails.ed.model.Mobile;
+import employeeDetails.ed.service.EmployeeService;
+import employeeDetails.ed.service.LaptopService;
+import employeeDetails.ed.service.OrganizationService;
 
 public class AppMain {
 
@@ -33,13 +33,13 @@ public class AppMain {
 		 // HealthInsurance hInsurance = new HealthInsurance();
 		  //logger.info("sftddddddddddddddddddddddddddddddddddddddd");
 		EmployeeService		  employeeService = applicationContext.getBean("employeeService", EmployeeService.class);
-		 try {
-			employeeService.insertProCall(25,new Date(),"employee 1",2000,1);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		  try { employeeService.insertProCall(35,new Date(),"employee 2",200350,1); }
+		  catch (Exception e) { // TODO Auto-generated catch block e.printStackTrace();
+		  }
+		 
 
+		//employeeService.getEmployee(2);
 	//	 RemoteServerInterface remote =		 applicationContext.getBean("remoteService",RemoteServerInterface.class);
 	//	 System.out.println(remote.remoteGetEmployee(1).getInsurance().getInsuranceTyep());
 		// System.out.println(remote.remoteGetEmployee(1).getName());

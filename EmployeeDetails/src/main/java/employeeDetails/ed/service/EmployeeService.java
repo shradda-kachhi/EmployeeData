@@ -1,9 +1,9 @@
-package employeeDetails.ed.Service;
+package employeeDetails.ed.service;
 
 import java.util.Date;
 import java.util.List;
 
-import employeeDetails.ed.Model.Employee;
+import employeeDetails.ed.model.Employee;
 
 public interface EmployeeService {
 	public List<Employee> getEmployeeList();

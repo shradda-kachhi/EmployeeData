@@ -1,4 +1,4 @@
-package employeeDetails.ed.Service;
+package employeeDetails.ed.service;
 
 import java.util.Date;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import employeeDetails.ed.Model.Employee;
-import employeeDetails.ed.Model.Laptop;
 import employeeDetails.ed.exceptions.CustomCheckedException;
+import employeeDetails.ed.model.Employee;
+import employeeDetails.ed.model.Laptop;
 
 @Service("OrganizationService")
 public class OrganizationServiceImpl implements OrganizationService {

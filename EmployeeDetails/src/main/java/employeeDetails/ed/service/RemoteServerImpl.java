@@ -1,4 +1,4 @@
-package employeeDetails.ed.Service;
+package employeeDetails.ed.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

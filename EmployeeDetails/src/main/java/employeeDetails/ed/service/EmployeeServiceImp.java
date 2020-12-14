@@ -1,4 +1,4 @@
-package employeeDetails.ed.Service;
+package employeeDetails.ed.service;
 
 import java.util.Date;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import employeeDetails.ed.Dao.EmployeeDao;
-import employeeDetails.ed.Model.Employee;
+import employeeDetails.ed.dao.EmployeeDao;
+import employeeDetails.ed.model.Employee;
 
 @Service("employeeService")
 @Transactional
