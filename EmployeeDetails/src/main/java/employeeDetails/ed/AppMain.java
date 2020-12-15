@@ -3,6 +3,10 @@ package employeeDetails.ed;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,6 +22,7 @@ import employeeDetails.ed.model.Mobile;
 import employeeDetails.ed.service.EmployeeService;
 import employeeDetails.ed.service.LaptopService;
 import employeeDetails.ed.service.OrganizationService;
+import employeeDetails.ed.service.ScheduledExecutor;
 
 public class AppMain {
 
@@ -27,21 +32,23 @@ public class AppMain {
 
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
-		
-		//  Employee emp = new Employee(); Laptop lap = new Laptop();
-		  
-		 // HealthInsurance hInsurance = new HealthInsurance();
-		  //logger.info("sftddddddddddddddddddddddddddddddddddddddd");
-		EmployeeService		  employeeService = applicationContext.getBean("employeeService", EmployeeService.class);
-		
-		  try { employeeService.insertProCall(35,new Date(),"employee 2",200350,1); }
-		  catch (Exception e) { // TODO Auto-generated catch block e.printStackTrace();
-		  }
-		 
+		// Employee emp = new Employee(); Laptop lap = new Laptop();
 
-		//employeeService.getEmployee(2);
-	//	 RemoteServerInterface remote =		 applicationContext.getBean("remoteService",RemoteServerInterface.class);
-	//	 System.out.println(remote.remoteGetEmployee(1).getInsurance().getInsuranceTyep());
+		// HealthInsurance hInsurance = new HealthInsurance();
+		// logger.info("sftddddddddddddddddddddddddddddddddddddddd");
+		/*
+		 * EmployeeService employeeService =
+		 * applicationContext.getBean("employeeService", EmployeeService.class);
+		 * 
+		 * try { employeeService.insertProCall(35,new Date(),"employee 2",200350,1); }
+		 * catch (Exception e) { // TODO Auto-generated catch block e.printStackTrace();
+		 * }
+		 */
+
+		// employeeService.getEmployee(2);
+		// RemoteServerInterface remote =
+		// applicationContext.getBean("remoteService",RemoteServerInterface.class);
+		// System.out.println(remote.remoteGetEmployee(1).getInsurance().getInsuranceTyep());
 		// System.out.println(remote.remoteGetEmployee(1).getName());
 
 		// OrganizationService organ = applicationContext.getBean("OrganizationService",
@@ -112,6 +119,27 @@ public class AppMain {
 
 		// employeeService.getEmployeeUseFetch(); //
 		// System.out.println(emp.getInsurance().getInsuranceTyep());
+
+		/*
+		 * ScheduledExecutor task = applicationContext.getBean("scheduler",
+		 * ScheduledExecutor.class);
+		 * 
+		 * ScheduledExecutorService executorService =
+		 * Executors.newScheduledThreadPool(3);
+		 * 
+		 * executorService.scheduleAtFixedRate(task, 2, 15, TimeUnit.SECONDS);
+		 * 
+		 * try { Thread.sleep(60000); } catch (InterruptedException e) {
+		 * e.printStackTrace(); } executorService.shutdown();
+		 */
+
+		
+		ExecutorService executorService = Executors.newFixedThreadPool(3);
+		for (int i = 1; i < 11; i++)
+			executorService.submit(new ScheduledExecutor("task__" + i));
+
+		executorService.shutdown();
+
 		applicationContext.close();
 
 	}

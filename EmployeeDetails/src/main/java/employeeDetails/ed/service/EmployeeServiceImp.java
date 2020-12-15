@@ -73,6 +73,7 @@ public Employee getEmployeeUseFetch() {
 
 @Override
 public void insertProCall(int id,Date doj,String nme,int sal,int lapid) {
+	System.out.println("inside service");
 	employeeDao.insertEMpProcedure( id, doj, nme, sal, lapid);
 	
 }
