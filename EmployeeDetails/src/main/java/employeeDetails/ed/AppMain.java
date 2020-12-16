@@ -1,11 +1,13 @@
 
 package employeeDetails.ed;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,14 +25,16 @@ import employeeDetails.ed.service.EmployeeService;
 import employeeDetails.ed.service.LaptopService;
 import employeeDetails.ed.service.OrganizationService;
 import employeeDetails.ed.service.ScheduledExecutor;
+import employeeDetails.ed.service.TaskShutDowns;
 
 public class AppMain {
 
 	private static final Logger logger = LogManager.getLogger(AppMain.class);
+	public static AnnotationConfigApplicationContext applicationContext;
 
-	public static void main(String[] args) throws CustomCheckedException {
+	public static void main(String[] args) throws CustomCheckedException, InterruptedException {
 
-		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
 		// Employee emp = new Employee(); Laptop lap = new Laptop();
 
@@ -120,6 +124,48 @@ public class AppMain {
 		// employeeService.getEmployeeUseFetch(); //
 		// System.out.println(emp.getInsurance().getInsuranceTyep());
 
+	
+
+		applicationContext.close();
+
+	}
+
+	public void shutDownsCheck() throws InterruptedException {
+		ScheduledExecutorService executor = Executors.newScheduledThreadPool(2);
+
+		LocalDateTime nowtIME = LocalDateTime.now();
+
+		TaskShutDowns task1 = applicationContext.getBean("taskshut", TaskShutDowns.class);
+		task1.setTaskName("work 1");
+		ScheduledFuture<String> return1 = executor.schedule(task1, 10, TimeUnit.SECONDS);
+
+		TaskShutDowns task2 = applicationContext.getBean("taskshut", TaskShutDowns.class);
+		task2.setTaskName("work 2");
+		ScheduledFuture<String> return2 = executor.schedule(task2, 20, TimeUnit.SECONDS);
+
+		TaskShutDowns task3 = applicationContext.getBean("taskshut", TaskShutDowns.class);
+		task3.setTaskName("work 3");
+		ScheduledFuture<String> return3 = executor.schedule(task3, 30, TimeUnit.SECONDS);
+
+		Thread.sleep(15000);
+		executor.shutdown();// if shutDownNow is used even executing task is stopped
+
+		System.out.println("Task-1 is done in " + return1.isDone());
+		System.out.println("Task-2 is done in " + return2.isDone());
+		System.out.println("Task-3 is done in " + return3.isDone());
+
+		System.out.println("***********Waiting for tasks to be complete*********");
+
+		executor.awaitTermination(1, TimeUnit.HOURS);/// this will wait for all task to complete or this await time
+														/// which ever is first
+
+		System.out.println("***********All tasks are completed nows*********");
+		System.out.println("Task-1 is done in " + return1.isDone());
+		System.out.println("Task-2 is done in " + return2.isDone());
+		System.out.println("Task-3 is done in " + return3.isDone());
+	}
+	public void threadPoolLocalCheck()
+	{
 		/*
 		 * ScheduledExecutor task = applicationContext.getBean("scheduler",
 		 * ScheduledExecutor.class);
@@ -133,14 +179,10 @@ public class AppMain {
 		 * e.printStackTrace(); } executorService.shutdown();
 		 */
 
-		
 		ExecutorService executorService = Executors.newFixedThreadPool(3);
 		for (int i = 1; i < 11; i++)
 			executorService.submit(new ScheduledExecutor("task__" + i));
 
 		executorService.shutdown();
-
-		applicationContext.close();
-
 	}
 }
