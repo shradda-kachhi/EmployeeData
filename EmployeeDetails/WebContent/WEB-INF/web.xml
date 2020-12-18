@@ -1,4 +1,6 @@
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+<!-- For http invoker -->
+
+<!-- <web-app xmlns="http://java.sun.com/xml/ns/javaee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
@@ -22,4 +24,27 @@
  <servlet-name>remoteExporter</servlet-name>
  <url-pattern>/</url-pattern>
  </servlet-mapping>
+</web-app> -->
+
+ 
+ <!-- For Rest Web Service
+  -->
+ <web-app xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+ version="3.0">
+ <display-name>Spring HTTP Invoker Sample</display-name>
+
+ <servlet>
+ <servlet-name>springRest</servlet-name>
+ <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+ <load-on-startup>1</load-on-startup>
+ </servlet>
+ 
+ <servlet-mapping>
+ <servlet-name>springRest</servlet-name>
+ <url-pattern>/</url-pattern>
+ </servlet-mapping>
 </web-app>
+ 

@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import cc.remoteInterface.RemoteServerInterface;
+import employeeDetails.ed.dao.EmployeeDao;
 
 
 
@@ -18,7 +20,8 @@ import cc.remoteInterface.RemoteServerInterface;
 @Configuration
 @ComponentScan({ "employeeDetails.ed" })
 @EnableTransactionManagement
-@EnableAspectJAutoProxy
+@EnableWebMvc
+@EnableAspectJAutoProxy(proxyTargetClass= true)
 public class AppConfig {
 
 	 @Autowired

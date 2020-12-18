@@ -1,10 +1,10 @@
 package employeeDetails.ed.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import cc.models.Employee;
-import cc.models.HealthInsurance;
 import cc.remoteInterface.RemoteServerInterface;
 
 
@@ -13,6 +13,7 @@ import cc.remoteInterface.RemoteServerInterface;
 @Service("remoteService")
 public class RemoteServerImpl implements RemoteServerInterface {
 	@Autowired
+	@Qualifier("employeeService")
 	EmployeeService employeeService;
 	
 	@Override

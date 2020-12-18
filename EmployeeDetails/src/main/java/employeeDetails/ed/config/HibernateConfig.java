@@ -27,7 +27,7 @@ public class HibernateConfig {
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
 		factory.setDataSource(dataSource());
-		factory.setPackagesToScan("employeeDetails.ed.Model");
+		factory.setPackagesToScan("employeeDetails.ed.model");
 		factory.setHibernateProperties(properties());
 		return factory;
 	}

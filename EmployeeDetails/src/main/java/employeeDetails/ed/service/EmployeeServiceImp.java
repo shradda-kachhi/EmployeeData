@@ -40,6 +40,13 @@ public cc.models.Employee getEmployee(int id)
 	return emloyeModel;
 }
 
+public Employee getEmployeeEntity(int id)
+{
+	
+	Employee empEntity= employeeDao.getEmployee(id);
+	return empEntity;
+}
+
 public Employee updateEmployee(Employee emp)
 {
 	return employeeDao.updateEmployee(emp);

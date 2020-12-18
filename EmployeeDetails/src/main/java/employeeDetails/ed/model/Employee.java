@@ -1,6 +1,5 @@
 package employeeDetails.ed.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +19,9 @@ import javax.persistence.SequenceGenerator;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -33,6 +35,7 @@ public int id;
 @Column
 public String name;
 @Column
+@JsonFormat(pattern="dd/MM/yyyy")
 public Date joining_date;
 @Column
 public double salary;
@@ -40,9 +43,11 @@ public double salary;
 
 @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)//cascade require to ddls childs while only saving parent 
 @JoinColumn(name="insurance")
+@JsonIgnore
 private HealthInsurance insurance;
 
 @OneToMany(mappedBy = "allocatedTo" ,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+@JsonIgnore
 private List<Mobile> mobileList = new ArrayList();
 
 public HealthInsurance getInsurance() {
