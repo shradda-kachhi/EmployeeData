@@ -20,7 +20,6 @@ import employeeDetails.ed.dao.EmployeeDao;
 @Configuration
 @ComponentScan({ "employeeDetails.ed" })
 @EnableTransactionManagement
-@EnableWebMvc
 @EnableAspectJAutoProxy(proxyTargetClass= true)
 public class AppConfig {
 
