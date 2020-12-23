@@ -1,71 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 
+//component decorator tells that it is not a normal class but decorator and containsd
+// all related data of that class
 @Component({
+
+  //can be declared as .app-test and used as class in any tag or [app-test]  as an tag attribute
   selector: 'app-test',
+  //instead of templateUrl and styleURL can use template , styles and write the html code
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-
+    testName="interpolation";
+    isdisabled =true;
+    failProperty ="text-failure";//from csss
+    public greeting="";
+    public templateReference="";
+    public twoWayBind="";
+    displayName = true;
+    switchcase ="red";
+    arrayVar =["Naruto","Hinata","Sasuke"]
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  interpolationTest()
+  {
+    return "interploation test success from method call";
+  }
+  onClick(){
+    this.greeting =' event binding';
+  }
+  templateReferenceFun(value :string)
+  {
+    this.templateReference =value +" from textbox";
+  }
 }
-export class MyClass{
-    //this can be doe directly through consytructor
-   // private x: number;
-   // private y : number;
-//we cannot have 2 or more constructor but can make params optional with ?
-    constructor(private x?:number,private y?:number)
-    {
-        //this.x=x;
-      //  this.y=y;
-    }
-
-    draw(){
-        console.log('inside draw X '+this.x+' Y '+this.y)
-    }
-    //property  for  the higher versions
-    getX()
-    {
-        return this.x;
-
-    }
-    setX(value){
-        this.x=value;
-    }
-
-}
-export function testVariableDeclare()
-{   let j=10;
-    var k=45;//var is visible within the enclosing fuction no matter where it is declared but lot wit let
-    for(var i=0;i<5;i++)
-    {
-        console.log(i);
-
-    }
-    console.log('I is visible here also in var but not in let',i);
-}
-
-export function varTypes()
-{
-    var a:number;
-    var b :string;
-    var c : boolean;
-    let d :number[] =[1,2,3];
-    let k :any;
-
-    enum Color {RED,BLUE};
-
-    let red :Color;
-
-
-}
-import {MyClass,testVariableDeclare} from './Point';
-
-let t = new MyClass(1,2);
-//t.X=23;
-//t.draw();
-testVariableDeclare();
