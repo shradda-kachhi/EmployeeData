@@ -7,12 +7,18 @@ import {Employee} from './employee';
   providedIn: 'root'
 })
 export class EmployeeService {
-    private url:string='http://localhost:8080/EmployeeDetails/employee?id=1';
+    private url:string='http://localhost:8080/EmployeeDetails/';
   constructor(private http:HttpClient) { }
 
-  getEmployeeList():Observable<Employee[]>//observable is a return fom http rewquest
-    { console.log( "this.http.get<Employee>(this.url)");
-    console.log( this.http.get<Employee[]>(this.url));
-     return  this.http.get<Employee[]>(this.url);
+  getEmployee():Observable<Employee>//observable is a return fom http rewquest
+    { 
+      console.log( "this.http.get<Employee>(this.url)");
+   
+     return  this.http.get<Employee>(this.url+"employee?id=1");
+    }
+    getEmployeeList():Observable<Employee[]>
+    {
+      console.log("het emplouyee list");
+      return this.http.get<Employee[]>(this.url+"employeeList");
     }
 }
