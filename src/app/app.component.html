@@ -1,4 +1,9 @@
 
 <div>{{title}}</div>
 <!--<app-test></app-test>-->
-    <app-employee-details></app-employee-details>
+   <!-- <app-employee-details></app-employee-details>-->
+   <!--the routerLink  gives the path and the component name
+and  routerLink actve tae the class present in style scss  for styling once the link is clicked-->
+   <button routerLink='/test' routerLinkActive="active">Test page</button>
+   <button routerLink='/employeeDetails' routerLinkActive="active">Employee details pafe</button>
+   <router-outlet></router-outlet><!--This tag comes from routing module and enables us to route in the same page-->

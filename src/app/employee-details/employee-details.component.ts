@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import {  Observable } from 'rxjs';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
@@ -13,6 +14,7 @@ export class EmployeeDetailsComponent implements OnInit {
   public  emp:Employee;
   public employeeList:Employee[];
   employeeForm:FormGroup;
+ public  errorMsg:string ;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -21,15 +23,17 @@ export class EmployeeDetailsComponent implements OnInit {
      fullName:new FormControl(),
      email: new FormControl()
    });
+   this.getEmp();
   }
 
   getEmp()
   {
-    this.employeeService.getEmployee().subscribe(something =>this.emp=something); 
-    this.employeeService.getEmployeeList().subscribe(data => this.employeeList=data);
+    this.employeeService.getEmployee().subscribe(something =>this.emp=something ,err =>this.errorMsg=err); 
+    this.employeeService.getEmployeeList().subscribe(data => this.employeeList=data, err =>this.errorMsg=err);
   }
   onSubmit()
   {
     console.log(this.employeeForm.value);
   }
+ 
 }

@@ -1,7 +1,9 @@
 <p>employee-details works!</p>
 <ul *ngFor="let a of   employeeList">
     <li>{{a?.name}}</li><!-- ?. checks whether the values are being initialized or not -->
+    
 </ul>
+{{ errorMsg }}
 <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()"><!--form  group binds with the form group-->
     <input type="text" id="textName" formControlName="fullName">
     <label for="textName">Enter Name</label>
