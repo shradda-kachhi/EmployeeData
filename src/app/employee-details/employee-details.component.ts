@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {  Observable } from 'rxjs';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee-details',
@@ -16,7 +17,7 @@ export class EmployeeDetailsComponent implements OnInit {
   employeeForm:FormGroup;
  public  errorMsg:string ;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService,private route:Router) { }
 
   ngOnInit(): void {
    this.employeeForm = new FormGroup({
@@ -36,4 +37,11 @@ export class EmployeeDetailsComponent implements OnInit {
     console.log(this.employeeForm.value);
   }
  
+  onEmpClick(someEmp:Employee)
+  {
+    // this routes to the existing routes present in app routing and takes 2 params  
+    //1 name 2 id that yiou gave in routing path
+    //to print this in new Page we have to use activatedRoute
+this.route.navigate(['newPage',someEmp.id])
+  }
 }

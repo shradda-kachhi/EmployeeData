@@ -1,6 +1,6 @@
 <p>employee-details works!</p>
 <ul *ngFor="let a of   employeeList">
-    <li>{{a?.name}}</li><!-- ?. checks whether the values are being initialized or not -->
+    <li (click)="onEmpClick(a)">{{a?.name}} {{a.joining_date}}</li><!-- ?. checks whether the values are being initialized or not -->
     
 </ul>
 {{ errorMsg }}

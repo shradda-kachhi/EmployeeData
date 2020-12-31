@@ -8,6 +8,8 @@ import { TestComponent } from './test/test.component';
 import { EmployeeService } from './employee.service';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NewNavigationComponent } from './new-navigation/new-navigation.component';
 
 
 
@@ -16,7 +18,9 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
      TestComponent,
-     EmployeeDetailsComponent
+     EmployeeDetailsComponent,
+     PageNotFoundComponent,
+     NewNavigationComponent
   ],
   imports: [
     BrowserModule,
