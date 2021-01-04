@@ -6,9 +6,11 @@ import { Employee } from '../employee';
   selector: 'app-new-navigation',
   template: `
     <p>
-      new-navigation works!
-      you selected emplouyeeid as {{empId}}
-      <a (click)= "goNext()"> go next</a>
+      new-navigation works! <br>
+      you selected emplouyeeid as {{empId}}<br>
+      <button (click)= "goNext()"> go next</button><br>
+      <button (click)="childPageLoad()">load details</button>
+      <router-outlet></router-outlet>
     </p>
   `,
   styles: [
@@ -38,5 +40,11 @@ export class NewNavigationComponent implements OnInit {
     //because when we try to navigate to same page the page is not initialised again
 
 this.routeSame.navigate(['newPage',this.empId+1]);
+  }
+  childPageLoad(){
+    //we need the details page only if eployee page is opened
+    //in such case we use child page navigation
+    //we need <router-outlet> to make new routed page to appar
+    this.routeSame.navigate(['child'],{relativeTo:this.activeRoute});//this relative path will add to tyhe existing route
   }
 }

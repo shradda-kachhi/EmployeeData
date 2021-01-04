@@ -1,14 +1,49 @@
 <p>employee-details works!</p>
+<!--
+
 <ul *ngFor="let a of   employeeList">
-    <li (click)="onEmpClick(a)">{{a?.name}} {{a.joining_date}}</li><!-- ?. checks whether the values are being initialized or not -->
+    <li (click)="onEmpClick(a)">{{a?.name}} {{a.joining_date}}</li>
+    
     
 </ul>
+
 {{ errorMsg }}
-<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()"><!--form  group binds with the form group-->
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
     <input type="text" id="textName" formControlName="fullName">
     <label for="textName">Enter Name</label>
     <input type="text" id="email"  formControlName="email">
     <label for="email">Enter Email</label>
     <button >Submit</button>
+    
+</form>
+-->
+
+<form userForm="ngForm">
+    <h2>Template driven Form</h2>
+  
+    <div>
+        <label>Name</label><input type="text" name="userName" ngModel>
+          </div>
+
+    <div>
+         <label>Email</label><input type="text" name="email" ngModel>
+          </div>
+    
+    <div>
+        <label>Phone</label><input type="text" name="Phone" ngModel>
+    </div>
+   
+    <div>
+       <select>Select employee type
+       <option selected >I am employee</option>
+       <option *ngFor="let e of typeList">{{e}}</option>
+    </select> 
+    </div>
+    <div>
+        
+    </div>
+    <div>
+        
+    </div>
 
 </form>

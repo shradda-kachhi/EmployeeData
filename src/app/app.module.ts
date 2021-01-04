@@ -10,6 +10,7 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import {HttpClientModule} from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NewNavigationComponent } from './new-navigation/new-navigation.component';
+import { ChildPageComponent } from './child-page/child-page.component';
 
 
 
@@ -20,7 +21,8 @@ import { NewNavigationComponent } from './new-navigation/new-navigation.componen
      TestComponent,
      EmployeeDetailsComponent,
      PageNotFoundComponent,
-     NewNavigationComponent
+     NewNavigationComponent,
+     ChildPageComponent
   ],
   imports: [
     BrowserModule,

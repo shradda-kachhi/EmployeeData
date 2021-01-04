@@ -16,6 +16,7 @@ export class EmployeeDetailsComponent implements OnInit {
   public employeeList:Employee[];
   employeeForm:FormGroup;
  public  errorMsg:string ;
+ public typeList=['permanent','contractual','intern'];
 
   constructor(private employeeService: EmployeeService,private route:Router) { }
 
@@ -24,7 +25,7 @@ export class EmployeeDetailsComponent implements OnInit {
      fullName:new FormControl(),
      email: new FormControl()
    });
-   this.getEmp();
+  this.getEmp();
   }
 
   getEmp()
@@ -44,4 +45,5 @@ export class EmployeeDetailsComponent implements OnInit {
     //to print this in new Page we have to use activatedRoute
 this.route.navigate(['newPage',someEmp.id])
   }
+ 
 }

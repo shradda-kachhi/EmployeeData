@@ -4,13 +4,22 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { NewNavigationComponent } from './new-navigation/new-navigation.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TestComponent } from './test/test.component';
+import {ChildPageComponent} from './child-page/child-page.component';
+
 
 //here we define avery routing comonents also add base tag in index html
 const routes: Routes = [
  {path:'',component:PageNotFoundComponent},//this is for  empty url localhost:4200
   {path:'test',component: TestComponent},
-  {path:'employeeDetails',component:EmployeeDetailsComponent},
-  {path:'newPage/:id',component:NewNavigationComponent},//this is for routing using id var
+  {
+    path:'employeeDetails',
+    component:EmployeeDetailsComponent,
+   },
+  {
+    path:'newPage/:id',
+    component:NewNavigationComponent,
+    children:[{path:'child',component:ChildPageComponent}]
+  },//this is for routing using id var
 {path:"**",component:PageNotFoundComponent}//this is a wild card routing so invalid url will show the default not found error but not in console
 ];
 

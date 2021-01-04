@@ -7,6 +7,7 @@ import {catchError} from 'rxjs/operators'
 
 //injectable  tells angular thatr it may have difrent dependency
 @Injectable({
+  //and provided in tells that this service should  be created by root and can be used  by all
   providedIn: 'root'
 })
 export class EmployeeService {
