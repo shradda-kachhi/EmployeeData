@@ -1,6 +1,7 @@
-export interface Employee{
-    id:number;
-    name:string;
-    joining_date:Date;
-    salary:number;
+export class Employee{
+   constructor( public id:number,
+    public name:string,
+    public joining_date:Date,
+    public salary:number)
+    {}
 }

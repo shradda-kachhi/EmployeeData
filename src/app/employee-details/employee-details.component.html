@@ -18,26 +18,42 @@
 </form>
 -->
 
-<form userForm="ngForm">
+<form #userForm="ngForm">
     <h2>Template driven Form</h2>
-  
+ <!-- <h3>{{userForm.value | json}}</h3>
+  <h2>employee objects already created vaalue  {{empObject | json}}</h2>-->
     <div>
-        <label>Name</label><input type="text" name="userName" ngModel>
-          </div>
-
+        <div>
+            <label>employee id</label>
+            <input type="number" name="id" [ngModel]="empObject.id" pattern ="[0-9]{4}" #identity="ngModel" [class.isWrong]="identity.invalid">
+     <h4 [class.do-nothing]="identity.valid"> {{" This is visible when IDENT IS  wrong  "}}</h4>
+      </div>
+        <br>
+        <label>Name</label>
+        <input type="text" name="name" [ngModel]="empObject.name" [class.isTouched]="namE.touched" #namE="ngModel">
+         <!--#namE is only for view validations and assigning it to ngModel givea sform conytrol
+        whereas [ngmodel] relates to the compoonent
+    -->
+        {{"NAME is touched  " + namE.touched}} </div>
+          <br>
+          <div>
+            <label>Salary</label><input type="number" name="salary" [ngModel]="empObject.salary" #paise="ngModel" [class.isChanged]="paise.dirty">
+              {{"PAISE is pristine  "+ paise.pristine}}
+        </div>
+              <br>
     <div>
-         <label>Email</label><input type="text" name="email" ngModel>
-          </div>
-    
-    <div>
-        <label>Phone</label><input type="text" name="Phone" ngModel>
+        <label>Joining Date</label><input type="text" name="joining_date" [ngModel]="empObject.joining_date">
     </div>
-   
+    <br>   
+       
     <div>
-       <select>Select employee type
-       <option selected >I am employee</option>
-       <option *ngFor="let e of typeList">{{e}}</option>
+       <select (blur) ="validateSelect(empType)" (change)="validateSelect(empType)" name ="empType"  [(ngModel)]="empType">
+       <option value="default"  >I am employee</option>
+       <option value={{e}} *ngFor="let e of typeList">{{e}}</option>
+       
     </select> 
+    {{empType}}
+       <small [class.show-select-error]="showSelectError"> Please choose other than  default</small>
     </div>
     <div>
         

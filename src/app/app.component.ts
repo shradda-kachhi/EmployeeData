@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Employee } from './employee';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularUI';
+ empObject =   new Employee(2316,'shradda',new Date(),23568);
 }

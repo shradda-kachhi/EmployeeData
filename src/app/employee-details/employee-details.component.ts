@@ -4,6 +4,7 @@ import {  Observable } from 'rxjs';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import {Router} from '@angular/router';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-employee-details',
@@ -17,8 +18,11 @@ export class EmployeeDetailsComponent implements OnInit {
   employeeForm:FormGroup;
  public  errorMsg:string ;
  public typeList=['permanent','contractual','intern'];
+ public empObject =this.app.empObject;
+public showSelectError:Boolean=false;
+public empType:string;
 
-  constructor(private employeeService: EmployeeService,private route:Router) { }
+  constructor(private employeeService: EmployeeService,private route:Router,private app :AppComponent) { }
 
   ngOnInit(): void {
    this.employeeForm = new FormGroup({
@@ -46,4 +50,11 @@ export class EmployeeDetailsComponent implements OnInit {
 this.route.navigate(['newPage',someEmp.id])
   }
  
+  validateSelect(value:string)
+  {
+    if(value==='default')
+    this.showSelectError=true;
+    else
+    this.showSelectError=false;
+  }
 }
