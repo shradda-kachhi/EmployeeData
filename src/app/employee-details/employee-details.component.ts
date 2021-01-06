@@ -5,6 +5,7 @@ import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-employee-details',
@@ -18,11 +19,13 @@ export class EmployeeDetailsComponent implements OnInit {
   employeeForm:FormGroup;
  public  errorMsg:string ;
  public typeList=['permanent','contractual','intern'];
- public empObject =this.app.empObject;
+ public empObject  =this.app.empObject;
 public showSelectError:Boolean=false;
 public empType:string;
+public showMsg:any;
 
-  constructor(private employeeService: EmployeeService,private route:Router,private app :AppComponent) { }
+  constructor(private employeeService: EmployeeService,private route:Router,
+    private app :AppComponent, private datePipe :DatePipe) { }
 
   ngOnInit(): void {
    this.employeeForm = new FormGroup({
@@ -56,5 +59,17 @@ this.route.navigate(['newPage',someEmp.id])
     this.showSelectError=true;
     else
     this.showSelectError=false;
+  }
+  saveEmployee(){
+    console.log("inside Save Emplyee method");
+  
+
+    this.empObject.joining_date= this.datePipe.transform(this.empObject.joining_date,'dd/MM/yyyy')!;
+    
+    console.log(this.empObject);
+    
+    this.employeeService.saveEmployee(this.empObject).
+    subscribe(returnId => this.showMsg=returnId,err => this.errorMsg =err);
+
   }
 }

@@ -1,0 +1,30 @@
+<h2>Reactive  Login Form</h2>
+<form [formGroup] ="loginForm">
+   <div formGroupName="userName">
+    <div>
+        <label for="first">User FirstName</label>
+        <input formControlName ="firstName" type="text" id="first">
+    </div>
+    <div>
+        <label for="last">User LastName</label>
+        <input formControlName ="lastName" type="text" id="last">
+    </div>
+</div>
+    <div>
+        <label for="password"> Password</label>
+        <input formControlName ="pass" type="password"id ="password">
+    </div>
+    <div>
+        <label for="confirmpassword">Confirm Password</label>
+        <input formControlName ="confirm" type="password"id ="confirmpassword">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+    <br>
+    <br>
+    <div>
+        <button type="button" (click)="loadData()">load data</button>
+    </div>
+    {{loginForm.value | json}}
+</form>

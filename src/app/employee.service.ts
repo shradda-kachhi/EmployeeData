@@ -27,6 +27,11 @@ export class EmployeeService {
       .pipe(catchError(this.erroHandlerFun));
     }
 
+    saveEmployee(emp :Employee)
+    {
+      return this.http.post<any>(this.url+"addEmployee",emp).pipe(catchError(this.erroHandlerFun))
+    }
+
     erroHandlerFun(error:HttpErrorResponse)
     {
   return throwError( "server ran into some trouble");

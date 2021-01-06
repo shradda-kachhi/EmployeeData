@@ -8,5 +8,5 @@ import { Employee } from './employee';
 })
 export class AppComponent {
   title = 'angularUI';
- empObject =   new Employee(2316,'shradda',new Date(),23568);
+ empObject =   new Employee(2316,'shradda',''+new Date(),23568);
 }

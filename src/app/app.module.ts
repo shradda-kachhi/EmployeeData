@@ -11,6 +11,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NewNavigationComponent } from './new-navigation/new-navigation.component';
 import { ChildPageComponent } from './child-page/child-page.component';
+import { DatePipe } from '@angular/common';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 
@@ -22,7 +24,8 @@ import { ChildPageComponent } from './child-page/child-page.component';
      EmployeeDetailsComponent,
      PageNotFoundComponent,
      NewNavigationComponent,
-     ChildPageComponent
+     ChildPageComponent,
+     ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { ChildPageComponent } from './child-page/child-page.component';
     ReactiveFormsModule // provides simplified functionalities for http services
    //for reactive forms
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService,DatePipe],
   // providers tells that theese are  to used in various componenets
 
   bootstrap: [AppComponent]
