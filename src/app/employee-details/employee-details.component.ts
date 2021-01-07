@@ -64,7 +64,7 @@ this.route.navigate(['newPage',someEmp.id])
     console.log("inside Save Emplyee method");
   
 
-    this.empObject.joining_date= this.datePipe.transform(this.empObject.joining_date,'dd/MM/yyyy')!;
+    this.empObject.joining_date= this.datePipe.transform(this.empObject.joining_date,'dd/MM/yyyy');
     
     console.log(this.empObject);
     
