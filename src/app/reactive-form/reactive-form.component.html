@@ -22,7 +22,16 @@
         <input formControlName ="confirm" type="password"id ="confirmpassword">
         <h3 *ngIf ="loginForm.errors ?.mismatch" class="iswrong"> password and confirm password {{loginForm.errors ?.mismatch.value}}</h3>
     </div>
-   
+   <div>
+       <label>Email</label>
+       <input type="email" formControlName="email">
+       <h3 *ngIf="email.invalid" class="isWrong">Email is  recquired </h3>
+   </div>
+    <div>
+        <input type="checkbox" formControlName="suscribe">
+       <label>send me promotional offers</label>
+     
+    </div>
     <div>
         <button type="submit">Submit</button>
     </div>
@@ -30,6 +39,17 @@
     <br>
     <div>
         <button type="button" (click)="loadData()">load data</button>
+    </div>
+
+
+    <div>
+        <button  class="isTouched" (click)="addAdress()">add your adresses</button>
+        <!--If index i is not added as formContolName than the values will not be entered in the array-->
+    <div formArrayName="address" *ngFor ="let a of address.controls; let i =index">
+       {{i}}
+        <input type="text" formControlName ="{{i}}">
+    </div>
+  
     </div>
     {{loginForm.value | json}}
 </form>
