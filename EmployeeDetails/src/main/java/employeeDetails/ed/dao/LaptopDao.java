@@ -20,4 +20,9 @@ public class LaptopDao {
 	private Session getSession() {
 		return seeFactory.getCurrentSession();
 	}
+	
+	public Laptop getLaptop(int id)
+	{
+		return (Laptop) getSession().get(Laptop.class, id);
+	}
 }

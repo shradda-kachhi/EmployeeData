@@ -11,4 +11,5 @@ public interface LaptopService {
 	void testNever();
 
 	void testNotSupport();
+	Laptop getLaptop(int id);
 }

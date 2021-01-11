@@ -16,11 +16,12 @@ public class LaptopServiceImpl implements LaptopService {
 	
 	
 	@Override
-	@Transactional(propagation = Propagation.MANDATORY)
+	//@Transactional(propagation = Propagation.MANDATORY)
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void saveLaptop(Laptop lap) throws CustomCheckedException {
 		System.out.println("Mandatory requires existing transaction otherwise throws illegal transaction exception");
-		throw new CustomCheckedException("checked exception if thrown then to rollback entire transcation rollbackFor should be used");
-		//laptopDao.saveLaptop(lap);
+		//throw new CustomCheckedException("checked exception if thrown then to rollback entire transcation rollbackFor should be used");
+		laptopDao.saveLaptop(lap);
 	}
 
 	@Override
@@ -40,5 +41,12 @@ public class LaptopServiceImpl implements LaptopService {
 	public void testNotSupport()
 	{
 		System.out.println("Not Supported will always run without transaction");
+	}
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
+	public Laptop getLaptop(int id) {
+		// TODO Auto-generated method stub
+		return laptopDao.getLaptop(id);
 	}
 }
