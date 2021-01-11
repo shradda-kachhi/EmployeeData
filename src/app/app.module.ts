@@ -13,6 +13,7 @@ import { NewNavigationComponent } from './new-navigation/new-navigation.componen
 import { ChildPageComponent } from './child-page/child-page.component';
 import { DatePipe } from '@angular/common';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { LaptopComponent } from './laptop/laptop.component';
 
 
 
@@ -25,7 +26,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
      PageNotFoundComponent,
      NewNavigationComponent,
      ChildPageComponent,
-     ReactiveFormComponent
+     ReactiveFormComponent,
+     LaptopComponent
   ],
   imports: [
     BrowserModule,
