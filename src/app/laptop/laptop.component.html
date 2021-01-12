@@ -1,1 +1,19 @@
-<p>laptop works!</p>
+<form [formGroup] ="laptopDetail" >
+<div>
+<label class="labelColor">enter Laptop Asset Id</label>
+<input class="textBoxBoundary" type="number" formControlName="id">
+</div>
+<div>
+<label class="labelColor"> Enter Brand Name</label>
+<input class="textBoxBoundary" type="text" formControlName="brand">
+</div>
+<div>
+    <button type="submit" (click)="saveLaptopDetails()"></button>
+</div>
+
+<div>
+    <label class="labelColor">Enter laptop id</label>
+    <input class = "textBoxBoundary" required type="number" ngModel #laptopId="ngModel">
+    <button [disabled]= "laptopId.invalid" (click)="getLaptopDetails()" >Get LAptop details</button>
+</div>
+</form>

@@ -5,3 +5,6 @@ export class Employee{
     public salary:number)
     {}
 }
+export class Laptop{
+    constructor(public id:number,public brandName:string){}
+}
