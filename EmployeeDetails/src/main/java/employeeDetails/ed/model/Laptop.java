@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name = "EmployeeLaptop")
 public class Laptop {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int lapId;
 	@Column
 	private String assetBrand;

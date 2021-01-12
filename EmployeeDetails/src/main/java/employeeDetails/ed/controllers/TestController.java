@@ -68,6 +68,8 @@ public class TestController {
 	}
 
 	@RequestMapping(value = "getLaptop", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	
+	@ResponseBody
 	public Laptop getLaptopById(@RequestParam int id) {
 
 		return laptopService.getLaptop(id);
