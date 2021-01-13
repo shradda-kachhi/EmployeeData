@@ -20,7 +20,7 @@ import employeeDetails.ed.service.EmployeeService;
 import employeeDetails.ed.service.LaptopService;
 
 @RestController
-
+@CrossOrigin(origins = "http://localhost:4200")
 public class TestController {
 	@Autowired
 	@Qualifier("employeeService")
@@ -68,7 +68,7 @@ public class TestController {
 	}
 
 	@RequestMapping(value = "getLaptop", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	
+
 	@ResponseBody
 	public Laptop getLaptopById(@RequestParam int id) {
 

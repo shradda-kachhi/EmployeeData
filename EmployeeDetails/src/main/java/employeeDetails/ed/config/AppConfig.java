@@ -8,27 +8,20 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import cc.remoteInterface.RemoteServerInterface;
-import employeeDetails.ed.dao.EmployeeDao;
-
-
-
-
 
 @Configuration
 @ComponentScan({ "employeeDetails.ed" })
 @EnableTransactionManagement
 @EnableWebMvc
-@EnableAspectJAutoProxy(proxyTargetClass= true)
-@CrossOrigin(value = "localhost:4200")
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class AppConfig {
 
-	 @Autowired
-	 RemoteServerInterface remoteService;
-	 
+	@Autowired
+	RemoteServerInterface remoteService;
+
 	@Bean(name = "remoteExporter")
 	public HttpInvokerServiceExporter getExporter() {
 		HttpInvokerServiceExporter exporter = new HttpInvokerServiceExporter();
@@ -36,9 +29,9 @@ public class AppConfig {
 		exporter.setServiceInterface(RemoteServerInterface.class);
 		return exporter;
 	}
+
 	@Bean
-	public ModelMapper getModelMapper()
-	{
+	public ModelMapper getModelMapper() {
 		return new ModelMapper();
 	}
 
