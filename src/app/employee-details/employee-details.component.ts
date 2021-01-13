@@ -37,7 +37,8 @@ public showMsg:any;
 
   getEmp()
   {
-    this.employeeService.getEmployee().subscribe(something =>this.emp=something ,err =>this.errorMsg=err); 
+    this.employeeService.getEmployee().subscribe(something =>this.emp=something.json ,err =>this.errorMsg=err); 
+    console.log(this.emp)
     this.employeeService.getEmployeeList().subscribe(data => this.employeeList=data, err =>this.errorMsg=err);
   }
   onSubmit()

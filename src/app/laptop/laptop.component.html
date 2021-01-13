@@ -8,12 +8,14 @@
 <input class="textBoxBoundary" type="text" formControlName="brand">
 </div>
 <div>
-    <button type="submit" (click)="saveLaptopDetails()"></button>
+    <button type="submit" (click)="saveLaptopDetails()">Submit laptop  details</button>
 </div>
+
+</form>
 
 <div>
     <label class="labelColor">Enter laptop id</label>
-    <input class = "textBoxBoundary" required type="number" ngModel #laptopId="ngModel">
-    <button [disabled]= "laptopId.invalid" (click)="getLaptopDetails()" >Get LAptop details</button>
+    <input class = "textBoxBoundary" required type="number" #getId>
+    <button (click)="getLaptopDetails(getId.value)" >Get LAptop details</button>
+    {{ this.LapObject | json}}
 </div>
-</form>

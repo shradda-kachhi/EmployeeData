@@ -14,7 +14,7 @@ export class LaptopComponent implements OnInit {
  laptopDetail :FormGroup;
  errorMsg :string;
  laptopId :number;
- LapObject :Laptop;
+ LapObject = new Laptop(0,'');
 
   ngOnInit(): void {
 this.laptopDetail =this.fb.group(
@@ -29,10 +29,10 @@ this.laptopDetail =this.fb.group(
     this.empService.saveLaptop(this.laptopDetail.value).
     subscribe(data =>this.errorMsg=data,error=>this.errorMsg=error);
   }
-  getLaptopDetails()
+  getLaptopDetails(i : string)
   {
     console.log("get laptop details");
-    this.empService.getLaptop(this.laptopId).subscribe(data=>this.LapObject=data,err=>this.errorMsg=err)
-    console.log(this.LapObject.brandName);
+    this.empService.getLaptop(parseInt(i)).subscribe((data ) => {this.LapObject.assetBrand= data.assetBrand; this.LapObject.lapId=data.lapId},err=>this.errorMsg=err)
+    console.log(this.LapObject);
   }
 }

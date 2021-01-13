@@ -6,5 +6,5 @@ export class Employee{
     {}
 }
 export class Laptop{
-    constructor(public id:number,public brandName:string){}
+    constructor(public lapId:number,public assetBrand:string){}
 }

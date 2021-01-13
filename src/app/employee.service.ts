@@ -1,6 +1,6 @@
 import { HttpClient,HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable,throwError ,pipe } from 'rxjs';
+import { Observable,throwError ,pipe, from } from 'rxjs';
 import {Employee, Laptop} from './employee';
 import { HttpErrorResponse } from '@angular/common/http';
 import {catchError} from 'rxjs/operators'
@@ -36,10 +36,12 @@ export class EmployeeService {
     {
       return this.http.post<any>(this.url+"laptop",lap).pipe(catchError(this.erroHandlerFun));
     }
-     getLaptop(id :number)
+     getLaptop(idd :number):Observable<any>
      { 
+       const para = new HttpParams().set('id',''+idd);
+
        
-       return this.http.get<any>(this.url+"getLaptop?id=7").pipe(catchError(this.erroHandlerFun));
+       return this.http.get<Laptop>(this.url+"getLaptop",{params :para}).pipe(catchError(this.erroHandlerFun));
      }
     erroHandlerFun(error:HttpErrorResponse)
     {
