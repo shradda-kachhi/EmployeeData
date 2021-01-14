@@ -1,4 +1,6 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { NewNavigationComponent } from './new-navigation.component';
 
@@ -8,7 +10,8 @@ describe('NewNavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewNavigationComponent ]
+      declarations: [ NewNavigationComponent ],
+      providers :[ActivatedRoute,Router,HttpClient,HttpHandler]
     })
     .compileComponents();
   });

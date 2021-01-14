@@ -1,4 +1,9 @@
+import { DatePipe } from '@angular/common';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
+import { EmployeeService } from '../employee.service';
 
 import { EmployeeDetailsComponent } from './employee-details.component';
 
@@ -8,7 +13,8 @@ describe('EmployeeDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmployeeDetailsComponent ]
+      declarations: [ EmployeeDetailsComponent ],
+      providers :[EmployeeService,Router,AppComponent,DatePipe,HttpHandler,HttpClient]
     })
     .compileComponents();
   });
