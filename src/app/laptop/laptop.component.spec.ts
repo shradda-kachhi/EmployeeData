@@ -1,6 +1,8 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { EmployeeServiceStub } from '../employee-details/employee-details.component.spec';
 import { EmployeeService } from '../employee.service';
 
 import { LaptopComponent } from './laptop.component';
@@ -12,7 +14,10 @@ describe('LaptopComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LaptopComponent ],
-      providers :[FormBuilder,EmployeeService,HttpClient,HttpHandler]
+      imports :[RouterTestingModule,ReactiveFormsModule],
+      providers :[
+      {provide:EmployeeService,useClass:EmployeeServiceStub}
+    ]
     })
     .compileComponents();
   });
@@ -27,3 +32,4 @@ describe('LaptopComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
