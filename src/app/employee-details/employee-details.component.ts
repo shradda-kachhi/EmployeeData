@@ -32,7 +32,7 @@ public showMsg:any;
      fullName:new FormControl(),
      email: new FormControl()
    });
- // this.getEmp();
+  //this.getEmp();
   }
 
   getEmp()

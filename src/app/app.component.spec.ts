@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -9,9 +9,9 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from './employee.service';
 
 describe('AppComponent', () => {
-  const fixture = TestBed.createComponent(AppComponent);
+  let fixture : ComponentFixture<AppComponent>;
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
+       await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
                BrowserModule,
@@ -27,6 +27,7 @@ describe('AppComponent', () => {
         AppComponent
       ],
     }).compileComponents();
+    fixture = TestBed.createComponent(AppComponent);
   });
 
   it('should create the app', () => {
@@ -54,7 +55,7 @@ describe('AppComponent', () => {
     
    const  buutonFix=fixture.debugElement.queryAll(By.css('button'));
    //this checks tghat there must be buttons present 1 ore more
-    expect(  buutonFix.length >= 1).toBeTruthy;
+    expect(buutonFix.length >= 1).toBeTruthy();
    
   });
   it('should have button LogIn Form', ()=>

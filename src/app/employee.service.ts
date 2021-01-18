@@ -39,8 +39,7 @@ export class EmployeeService {
      getLaptop(idd :number):Observable<any>
      { 
        const para = new HttpParams().set('id',''+idd);
-
-       
+      
        return this.http.get<Laptop>(this.url+"getLaptop",{params :para}).pipe(catchError(this.erroHandlerFun));
      }
     erroHandlerFun(error:HttpErrorResponse)

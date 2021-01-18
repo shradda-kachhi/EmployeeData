@@ -47,6 +47,7 @@ const h2Ele=fixture.debugElement.query(By.css( 'h2'));
 expect(h2Ele.nativeElement.textContent).toBe( 'Template driven Form');
   });
 });
+//when we use service inside a componenet we make a stub for that service inside the component test
 export class EmployeeServiceStub{
   getEmployee():Observable<any>
   {//this stub function returs empty observable this is required because from ngoninit we are calling
