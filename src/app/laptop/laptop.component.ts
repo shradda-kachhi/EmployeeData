@@ -18,9 +18,9 @@ export class LaptopComponent implements OnInit {
 
   ngOnInit(): void {
 this.laptopDetail =this.fb.group(
-  {
-    id : ['',[Validators.required]],
-    brand :['',[Validators.required]]
+  {//this should have the same name as in backend laptop properties
+    lapId : ['',[Validators.required]],
+    assetBrand :['',[Validators.required]]
   }
 );
   }

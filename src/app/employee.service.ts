@@ -20,11 +20,11 @@ export class EmployeeService {
    
      return  this.http.get<any>(this.url+"employee?id=1").pipe(catchError(this.erroHandlerFun));
     }
-    getEmployeeList():Observable<any>
+    getEmployeeList()
     {
-      console.log("het emplouyee list");
-      return this.http.get<any>(this.url+"employeeList")
-      .pipe(catchError(this.erroHandlerFun));
+      console.log("Get emplouyee list");
+      return this.http.get<Employee[]>(this.url+"employeeList")
+     .pipe(catchError(this.erroHandlerFun));
     }
 
     saveEmployee(emp :Employee)
@@ -34,6 +34,7 @@ export class EmployeeService {
 
     saveLaptop(lap :Laptop)
     {
+      console.log(lap);
       return this.http.post<any>(this.url+"laptop",lap).pipe(catchError(this.erroHandlerFun));
     }
      getLaptop(idd :number):Observable<any>
@@ -42,9 +43,18 @@ export class EmployeeService {
       
        return this.http.get<Laptop>(this.url+"getLaptop",{params :para}).pipe(catchError(this.erroHandlerFun));
      }
-    erroHandlerFun(error:HttpErrorResponse)
+    erroHandlerFun(errorRes:HttpErrorResponse)
     {
-  return  "server ran into some trouble";
+      //if it is instance of errorevent than it is client side error
+      if(errorRes.error instanceof ErrorEvent)
+      {
+      console.error('Client side error '+errorRes.error.message);
+      }
+      else
+      {
+        console.error('server side error '+errorRes.error.message);
+      }
+  return   throwError(errorRes.error.message);
      
     }
 }
