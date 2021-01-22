@@ -1,0 +1,41 @@
+<h1>The Basics</h1>
+<h2>String Interpolation</h2>
+<p>String interpolation can have antthing inside curly braces taht is string 
+    or can easily coverted into string.
+    You cannot use if  or loop inside it , though you can use ternary operator.
+    </p>
+
+{{1===1?true:false}}
+<br>
+<h2>Property Binding</h2>
+<button [disabled] ="changeDisabled" class ="btn btn-primary">Add</button>
+<br>
+<h2>Event Binding</h2>
+<p>even $event is an event object that contains data about that event
+    and the input event calls the function on every key stroke
+</p>
+<input (input)="onEachKeyInput($event)" class ="form-control">
+{{inputEvent}}
+
+<h2>assignment 2</h2>
+<p *ngIf="assgTextBox==='' else elsePart"> if the textbox is empty make the button disabled
+    and if not make button enabled and on click make the text box empty</p>
+    <ng-template #elsePart>
+        <p>We use Ng templatre directive to show optional part </p>
+    </ng-template>
+<input [(ngModel)]="assgTextBox" class="form-control">
+<button class="btn btn-primary" [disabled]="assgTextBox===''?true:false" (click)="assgTextBox =''"
+>Check</button>
+
+<h2>Attibute directives</h2>
+<p>Only changes the elemnt which they are placed on and can be dynamic</p>
+<h3>Ng Style </h3>
+<p [ngStyle]="{'background-color':'lightpink'}">This is one way where you can mention all 
+    the style in key value pair</p>
+    <br>
+    <p [ngStyle]="{'background-color':getColor()}">Second way is to call
+         the function dynamically
+    </p>
+
+    <h3>Ng class</h3>
+    <p [ngClass]="{ngclasstest:true}">Ng class is use to dynamically use css styles</p>
