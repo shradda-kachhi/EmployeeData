@@ -4,9 +4,9 @@
     or can easily coverted into string.
     You cannot use if  or loop inside it , though you can use ternary operator.
     </p>
-
 {{1===1?true:false}}
 <br>
+
 <h2>Property Binding</h2>
 <button [disabled] ="changeDisabled" class ="btn btn-primary">Add</button>
 <br>
@@ -39,3 +39,9 @@
 
     <h3>Ng class</h3>
     <p [ngClass]="{ngclasstest:true}">Ng class is use to dynamically use css styles</p>
+
+    <h2>Structural Directives</h2>
+    <p>Sructural directives are those that changes the dom structure</p>
+    <input type="text" #localVar class="form-control">
+    <button class="btn btn-primary" (click)="addtoList(localVar.value)">Add values to list dynamically</button>
+    <ul *ngFor="let x of dynamicList"> {{x}}</ul>

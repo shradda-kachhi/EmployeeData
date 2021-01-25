@@ -9,6 +9,7 @@ export class FirstComponent{
 changeDisabled=false;
 inputEvent='';
 assgTextBox ='';
+dynamicList = [];
     constructor(){
         //this is an angular fuction takes two parameter
         //first is the function 2nd the timout time when you have to run that function
@@ -23,4 +24,7 @@ console.log(this.inputEvent);
 getColor(){
     return 'turquoise';
 }
-}
+addtoList(val)
+{
+this.dynamicList.push(val);
+}}
