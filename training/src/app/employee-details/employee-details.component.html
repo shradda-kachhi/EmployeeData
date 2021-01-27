@@ -1,0 +1,66 @@
+<p>employee-details works!</p>
+
+
+<ul *ngFor="let a of   employeeList">
+    <li (click)="onEmpClick(a)">{{a?.name}} {{a.joining_date}}</li>
+    
+    
+</ul>
+
+{{ errorMsg }}
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <input type="text" id="textName" formControlName="fullName">
+    <label for="textName">Enter Name</label>
+    <input type="text" id="email"  formControlName="email">
+    <label for="email">Enter Email</label>
+    <button >Submit</button>
+    
+</form>
+
+
+<form #userForm="ngForm" (ngSubmit)="saveEmployee()">
+    <h2>Template driven Form</h2>
+ <!-- <h3>{{userForm.value | json}}</h3>
+  <h2>employee objects already created vaalue  {{empObject | json}}</h2>-->
+    <div>
+        <div>
+            <label>employee id</label>
+            <input required type="number" name="id" [(ngModel)]="empObject.id" pattern ="[0-9]{4}" #identity="ngModel" [class.isWrong]="identity.invalid">
+     <h4 [class.do-nothing]="identity.valid"> {{" This is visible when IDENT IS  wrong  "}}</h4>
+      </div>
+        <br>
+        <label>Name</label>
+        <input type="text" name="name" [(ngModel)]="empObject.name" [class.isTouched]="namE.touched" #namE="ngModel">
+         <!--#namE is only for view validations and assigning it to ngModel givea sform conytrol
+        whereas [ngmodel] relates to the compoonent
+    -->
+        {{"NAME is touched  " + namE.touched}} </div>
+          <br>
+          <div>
+            <label>Salary</label><input type="number" name="salary" [(ngModel)]="empObject.salary" #paise="ngModel" [class.isChanged]="paise.dirty">
+              {{"PAISE is pristine  "+ paise.pristine}}
+        </div>
+              <br>
+    <div>
+        <label>Joining Date</label><input type="text" name="joining_date" [(ngModel)]="empObject.joining_date">
+    </div>
+    <br>   
+       
+    <div>
+       <select (blur) ="validateSelect(empType)" (change)="validateSelect(empType)" name ="empType"  [(ngModel)]="empType">
+       <option value="default"  >I am employee</option>
+       <option value={{e}} *ngFor="let e of typeList">{{e}}</option>
+       
+    </select> 
+    {{empType}}
+       <small [class.show-select-error]="showSelectError"> Please choose other than  default</small>
+    </div>
+    <div>
+        <button [disabled]="userForm.form.invalid" type="submit">Submit</button>
+        {{userForm.form.invalid}}
+    </div>
+    <div>  the message after the employee save is called <br>
+        {{showMsg}} {{errorMsg}}
+    </div>
+
+</form>

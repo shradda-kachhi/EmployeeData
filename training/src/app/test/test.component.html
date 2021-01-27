@@ -1,0 +1,57 @@
+<p>test works!</p>
+<div>
+    <h2>{{testName}}</h2>
+    <h4>{{"interpolation with concatenation "+testName}}</h4>
+    <h4>{{testName.length}}</h4>
+    <h4>{{interpolationTest()}}</h4>
+
+</div>
+
+<div>
+    <h2 > Property  binding </h2>
+    <p>attribute is html property and property is a dom one it first cannot change but latter can</p>
+    <input type="text" value="this is attribute">
+    <input disabled="isdisabled" value="property binding">
+
+</div>
+<div>
+<h2>Class binding</h2>
+<p class="text-success">Success text</p>
+<p [class]="failProperty">Failure text</p>
+<div [ngClass]="['text-success', 'text-italics']" >ng class dynamically binds css class to html element</div>
+
+<p [style.color]="'orange'">Style binding</p>
+<button (click)="onClick()">greet</button>
+{{greeting}}
+
+<input #mytext type="text">
+<button (click)="templateReferenceFun(mytext.value)">templateCheck</button>
+{{templateReference}}
+</div>
+<div>
+    <h2>Two way binding in which template to class and class to template value are in sync</h2>
+    <input type="text" [(ngModel)]="twoWayBind">
+
+    {{twoWayBind}}
+</div>
+<div>
+    <h2>Ng if </h2>
+    <h3 *ngIf="displayName;else elseBlock"> Ng if is true then this is visible</h3>
+    <ng-template #elseBlock>  Ng if is false then this is visible</ng-template>
+
+    <div *ngIf="displayName ; then thenBlobk ; else elseBlock2"></div>
+    <ng-template #thenBlobk><h3>this is thenBlock</h3></ng-template>
+    <ng-template #elseBlock2><h3>this is elseBlock2</h3></ng-template>
+</div>
+    <div [ngSwitch]="switchcase">
+        <h2>Switch Case</h2>
+        <h3 *ngSwitchCase="'red'" [ngClass] ="'text-failure'" >this is red color </h3>
+        <h3 *ngSwitchCase="'blue'" [ngClass] ="'text-success'">this is blue color</h3>
+       <h3 *ngSwitchDefault>pick red or blue in switch default</h3>
+    </div>
+    <h2>NG For</h2>
+    <div *ngFor="let a of arrayVar; index as i; first as fi; last as ls; odd as o">
+        
+        <h3>{{i}} {{a}} {{fi}} {{ls}} {{o}}</h3>
+    </div>
+

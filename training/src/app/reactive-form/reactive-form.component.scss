@@ -1,0 +1,17 @@
+.isTouched{
+    background-color: yellow;
+    }
+    .isWrong{
+        background-color: red;
+    }
+    .isChanged
+    {
+        background-color: green;
+    }
+    .do-nothing{
+        visibility: hidden;
+    }
+    .show-select-error
+    {
+        background-color: hotpink;
+    }
