@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { Employee } from './employee';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularUI';
- empObject =   new Employee(2316,'shradda',''+new Date(),23568);
+  title = 'udemyFirst';
+  appDynamicList=[{type:'dynamic',content:'just a test content'}];
+
+storeInParent(newData :{type :string,content:string})
+{
+  this.appDynamicList.push({type:newData.type,content:newData.content});
+}
 }

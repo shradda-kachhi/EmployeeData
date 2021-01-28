@@ -1,45 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormControl, FormGroup, FormsModule,ReactiveFormsModule} from '@angular/forms'
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
-import { EmployeeService } from './employee.service';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import {HttpClientModule} from '@angular/common/http';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { NewNavigationComponent } from './new-navigation/new-navigation.component';
-import { ChildPageComponent } from './child-page/child-page.component';
-import { DatePipe } from '@angular/common';
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
-import { LaptopComponent } from './laptop/laptop.component';
-
-
-
+import { FirstComponent } from './firstComponent/first.component';
+import { FormsModule } from '@angular/forms';
+import { AssignmentComponent } from './assignment/assignment.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './header/header.component';
+import { RecipiesComponent } from './recipies/recipies.component';
+import { RecipieListComponent } from './recipies/recipie-list/recipie-list.component';
+import { RecipieDetailsComponent } from './recipies/recipie-details/recipie-details.component';
+import { RecipieItemComponent } from './recipies/recipie-list/recipie-item/recipie-item.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingEdtComponent } from './shopping-list/shopping-edt/shopping-edt.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-     TestComponent,
-     EmployeeDetailsComponent,
-     PageNotFoundComponent,
-     NewNavigationComponent,
-     ChildPageComponent,
-     ReactiveFormComponent,
-     LaptopComponent
+    FirstComponent,
+    AssignmentComponent,
+    HeaderComponent,
+    RecipiesComponent,
+    RecipieListComponent,
+    RecipieDetailsComponent,
+    RecipieItemComponent,
+    ShoppingListComponent,
+    ShoppingEdtComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule // provides simplified functionalities for http services
-   //for reactive forms
+    AppRoutingModule
   ],
-  providers: [EmployeeService,DatePipe],
-  // providers tells that theese are  to used in various componenets
-
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

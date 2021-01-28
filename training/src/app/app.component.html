@@ -1,12 +1,10 @@
 
-<div>{{title}}</div>
-<div class="content"><span>angularUI app is running!</span></div>
-<!--<app-test></app-test>-->
-   <!-- <app-employee-details></app-employee-details>-->
-   <!--the routerLink  gives the path and the component name
-and  routerLink actve tae the class present in style scss  for styling once the link is clicked-->
-   <button routerLink='/test' routerLinkActive="active">Test page</button>  &nbsp;&nbsp;
-   <button routerLink='/employeeDetails' routerLinkActive="active">Employee details page</button>  &nbsp;&nbsp;   
-   <button routerLink ='/loginForm' routerLinkActve="active" >LogIn Form</button>   &nbsp;&nbsp;   
-   <button routerLink ='/laptopDetails'  routerLinkActve="active" >Laptop details</button>
-   <router-outlet></router-outlet><!--This tag comes from routing module and enables us to route in the same page-->
+<!-- < button class="btn" routerLink="/basics" routerLinkActive="active">Basics</button> &nbsp;
+<button class="btn" routerLink="/assignments" routerLinkActive="active">Assignments</button>
+<router-outlet></router-outlet> -->
+<!-- <app-header></app-header>
+<app-recipies></app-recipies>
+
+<app-shopping-list></app-shopping-list> -->
+<app-first *ngFor="let dynamicTest of appDynamicList" [dynProperty]="dynamicTest"
+(sendEvent)="storeInParent($event)"> {{dynamicTest}}</app-first>
