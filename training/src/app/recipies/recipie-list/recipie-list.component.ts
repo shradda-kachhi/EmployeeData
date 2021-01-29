@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 import { Recipie } from '../recipie.model';
 
 @Component({
@@ -13,9 +14,13 @@ recipies : Recipie []=[
   new Recipie('pani puri','sour sweet',
   'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg')//all images cannot be shown 
 ];
+@Output() selectedRec =new EventEmitter<Recipie>();
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  acceptReciItem(rec:Recipie)
+  {
+    this.selectedRec.emit(rec);
+  }
 }

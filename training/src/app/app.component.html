@@ -1,10 +1,19 @@
 
-<!-- < button class="btn" routerLink="/basics" routerLinkActive="active">Basics</button> &nbsp;
+<!-- 1 < button class="btn" routerLink="/basics" routerLinkActive="active">Basics</button> &nbsp;
 <button class="btn" routerLink="/assignments" routerLinkActive="active">Assignments</button>
 <router-outlet></router-outlet> -->
-<!-- <app-header></app-header>
-<app-recipies></app-recipies>
 
-<app-shopping-list></app-shopping-list> -->
-<app-first *ngFor="let dynamicTest of appDynamicList" [dynProperty]="dynamicTest"
-(sendEvent)="storeInParent($event)"> {{dynamicTest}}</app-first>
+<!--2  This is the course application-->
+    <app-header (componentType)="onComponentLoad($event)"></app-header>
+<app-recipies  *ngIf="selectedComp==='recipie'"></app-recipies>
+
+<app-shopping-list  *ngIf="selectedComp==='shopping'"></app-shopping-list> 
+
+<!-- 3 This is to test intercomponent calls-->
+<!-- <app-first *ngFor="let dynamicTest of appDynamicList" [dynProperty]="dynamicTest"
+(sendEvent)="storeInParent($event)"> {{dynamicTest}}</app-first> -->
+
+<!-- This is tto test assignmet 4 -->
+
+<!-- <app-assignment (startGame)="storeData($event)"></app-assignment>
+<app-assignment  [dynamicCallComponent]="counter"></app-assignment> -->

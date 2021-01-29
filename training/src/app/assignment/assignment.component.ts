@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -9,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class AssignmentComponent implements OnInit {
  toggle=false;
  timeList =[];
+id:any;
+counter=1;
+ @Output('startGame') startGameEvent = new EventEmitter<number>();
+@Input () dynamicCallComponent :number;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +22,18 @@ export class AssignmentComponent implements OnInit {
   {
     this.toggle =!this.toggle;
 this.timeList.push(new Date());
+  }
+  startGame()
+  {
+    console.log('This is coming from assignment '+ this.counter);
+this.id =setInterval(()=>{
+  this.startGameEvent.emit(this.counter);
+  this.counter++;},1000);
+  
+  }
+  stopGame()
+  { 
+if(this.id)
+clearInterval(this.id);
   }
 }

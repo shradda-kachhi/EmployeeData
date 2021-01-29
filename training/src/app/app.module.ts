@@ -30,7 +30,8 @@ import { ShoppingEdtComponent } from './shopping-list/shopping-edt/shopping-edt.
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

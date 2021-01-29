@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Recipie } from '../../recipie.model';
 
 @Component({
   selector: 'app-recipie-item',
@@ -11,5 +13,10 @@ export class RecipieItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  @Input() recipieList:Recipie[];
+  @Output() sendDetails =new EventEmitter<Recipie>();
 
+  sendReciDetails(re:Recipie){
+this.sendDetails.emit(re);
+  }
 }

@@ -1,4 +1,4 @@
-<h2> assignment 2</h2>
+<!-- <h2> assignment 2</h2>
 <button class="btn btn-primary" (click)="togFun()">Display Details</button>
 <p *ngIf="toggle">This paragraph toggles with each diplay button click.
     Also everytime this button is clicked an list should be updated
@@ -6,4 +6,13 @@
     this array should be visible below the paragraph, 
     starting from the fifth item onwards the background color of the item must be blue.
 </p>
-<ul *ngFor ="let a of timeList;index as i" [ngClass]="{indexColor:i>3}" [ngStyle]="{color: i>3 ?'white':'black'}"> {{a}}</ul>
+<ul *ngFor ="let a of timeList;index as i" [ngClass]="{indexColor:i>3}" [ngStyle]="{color: i>3 ?'white':'black'}"> {{a}}</ul> -->
+
+<h2>Assignment 4</h2>
+<p> there should be two buttons to start and stop the game
+    you need to emit an event everytime according to the interval.
+    on clicking stop button te event should clear th einterval.
+</p>
+<button class="btn btn-success" (click)="startGame()">Start Game</button> &nbsp;
+<button class="btn btn-warning" (click)="stopGame()">Stop Game</button> &nbsp;
+{{dynamicCallComponent}}

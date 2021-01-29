@@ -1,1 +1,10 @@
-<p>recipie-item works!</p>
+<a class="list-group-item clearfix" href="#" *ngFor="let re of recipieList" (click)="sendReciDetails(re)"> 
+    <div  class="pull-left">
+        <h4 class="list-group-item-heading">{{re.recipieName}}</h4>
+        <p class="list-group-item-text">{{re.description}}</p>
+       
+    </div>
+    <span class ="pull-right">
+        <img  src="{{re.recipieImg}}" alt ="img" class="img-responsive" style="max-height: 50px;">
+    </span>
+</a>

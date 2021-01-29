@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
+
 
 @Component(
     {
@@ -7,5 +8,12 @@ import { Component } from "@angular/core";
     }
 )
 export class HeaderComponent{
+ @Output() componentType =new EventEmitter<string>();
+
+ componentTypeSelect(str:string)
+ {
+   this.componentType.emit(str);
+ }
+ 
 
 }
