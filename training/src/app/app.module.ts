@@ -13,6 +13,9 @@ import { RecipieDetailsComponent } from './recipies/recipie-details/recipie-deta
 import { RecipieItemComponent } from './recipies/recipie-list/recipie-item/recipie-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEdtComponent } from './shopping-list/shopping-edt/shopping-edt.component';
+import { DirectivesComponent } from './directives/directives.component';
+import { BasicHighlightDirective } from './directives/first-highlight.directive';
+import { CustomSTructureDirective } from './directives/structure-comp.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { ShoppingEdtComponent } from './shopping-list/shopping-edt/shopping-edt.
     RecipieDetailsComponent,
     RecipieItemComponent,
     ShoppingListComponent,
-    ShoppingEdtComponent
+    ShoppingEdtComponent,
+    DirectivesComponent,
+    BasicHighlightDirective,
+    CustomSTructureDirective
   ],
   imports: [
     BrowserModule,

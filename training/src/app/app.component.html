@@ -1,13 +1,14 @@
 
-<!-- 1 < button class="btn" routerLink="/basics" routerLinkActive="active">Basics</button> &nbsp;
-<button class="btn" routerLink="/assignments" routerLinkActive="active">Assignments</button>
-<router-outlet></router-outlet> -->
+1 <button class="btn" routerLink="/basics" routerLinkActive="active">Basics</button> &nbsp;
+<button class="btn" routerLink="/assignments" routerLinkActive="active">Assignments</button>&nbsp;
+<button class="btn" routerLink="/directives" routerLinkActive="active">Directives</button>
+<router-outlet></router-outlet>
 
 <!--2  This is the course application-->
-    <app-header (componentType)="onComponentLoad($event)"></app-header>
+    <!-- <app-header (componentType)="onComponentLoad($event)"></app-header>
 <app-recipies  *ngIf="selectedComp==='recipie'"></app-recipies>
 
-<app-shopping-list  *ngIf="selectedComp==='shopping'"></app-shopping-list> 
+<app-shopping-list  *ngIf="selectedComp==='shopping'"></app-shopping-list>  -->
 
 <!-- 3 This is to test intercomponent calls-->
 <!-- <app-first *ngFor="let dynamicTest of appDynamicList" [dynProperty]="dynamicTest"
