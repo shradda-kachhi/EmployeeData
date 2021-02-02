@@ -16,6 +16,8 @@ import { ShoppingEdtComponent } from './shopping-list/shopping-edt/shopping-edt.
 import { DirectivesComponent } from './directives/directives.component';
 import { BasicHighlightDirective } from './directives/first-highlight.directive';
 import { CustomSTructureDirective } from './directives/structure-comp.directive';
+import { appDropDownDirective } from './shared/dropdown.directive';
+import { InterComponentCommmService } from './interComponent.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CustomSTructureDirective } from './directives/structure-comp.directive'
     ShoppingEdtComponent,
     DirectivesComponent,
     BasicHighlightDirective,
-    CustomSTructureDirective
+    CustomSTructureDirective,
+ appDropDownDirective
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ import { CustomSTructureDirective } from './directives/structure-comp.directive'
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [InterComponentCommmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,5 +4,14 @@
 <br>
 <h2>Custom Strucure Directyive</h2>
 <p>this structure directive is opposite of ngif and takes bolean value</p>
-<h3 *appUnless="booleanVar"> This will be printed if the appunless condition is false</h3>
-<h3 *appUnless="booleanVar"> This will be not printed if the appunless condition is true</h3>
+<h4 *appUnless="booleanVar"> This will be printed if the appunless condition is false</h4>
+<h4 *appUnless="booleanVar"> This will be not printed if the appunless condition is true</h4>
+
+<h2>Inter component event Emitter through sertvices</h2>
+<button class="btn btn-success" (click)="innterComponentEventemit()">Click to emit </button>
+
+<h2>for assignmet 2 inter componet service comm</h2>
+<button class="btn-danger" (click)=" removeElementFromService()">Remove from service array</button>
+<div *ngFor="let a of localarray">
+    <li>{{a}}</li>
+</div>

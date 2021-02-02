@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { InterComponentCommmService } from '../interComponent.service';
 
 
 @Component({
@@ -11,12 +12,21 @@ export class AssignmentComponent implements OnInit {
  timeList =[];
 id:any;
 counter=1;
+localarray:string[];
  @Output('startGame') startGameEvent = new EventEmitter<number>();
 @Input () dynamicCallComponent :number;
 
-  constructor() { }
+  constructor(private interComponentServiceTalk:InterComponentCommmService) {
+      //This essage will suscribe to the event emitted from the directive component
+  //to check the inter component communication if an eventEmitter present inside  a
+  //sertvice used byu both component
+    this.interComponentServiceTalk.statusCheck.subscribe(
+      (statusFromDirectComp:string)=>alert('This is oinside assignment comp,but this is from directive comp 12456'+statusFromDirectComp)
+    )
+   }
 
   ngOnInit(): void {
+    this.localarray =this.interComponentServiceTalk.shartedarray;
   }
   togFun()
   {
@@ -36,4 +46,10 @@ this.id =setInterval(()=>{
 if(this.id)
 clearInterval(this.id);
   }
+
+  addTomArray(str:string){
+    this.interComponentServiceTalk.addToArray(str);
+  }
+
+  
 }

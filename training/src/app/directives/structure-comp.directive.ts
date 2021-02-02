@@ -6,7 +6,9 @@ import { Directive, Input, TemplateRef, ViewContainerRef,  } from "@angular/core
     }
 )
 export class CustomSTructureDirective{
- @Input() set appUnless(condition:boolean){
+    //this is to set yur own structural directive
+    //this name should be eqal to selector name or should be given alias
+ @Input('appUnless') set appUless(condition:boolean){
      if(!condition){
 this.vieRef.createEmbeddedView(this.templateRef);
      }

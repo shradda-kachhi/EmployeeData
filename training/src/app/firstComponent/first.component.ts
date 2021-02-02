@@ -1,6 +1,7 @@
 import { Component, Input, Output ,EventEmitter, ViewChild, ElementRef} from "@angular/core";
 
 
+
 @Component ({
     selector :'app-first',//we can have a class like '.app-firs' and as an element [app-first]
     templateUrl :'./first.component.html',
@@ -44,4 +45,6 @@ this.sendEvent.emit({type:this.dyType,content:this.dyContent});
 onvew()
 {
     this.dyType=this.viewChild.nativeElement.value;
-}}
+}
+
+}

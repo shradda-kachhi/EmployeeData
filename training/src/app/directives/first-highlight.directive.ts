@@ -33,7 +33,7 @@ this.stringColor=this.defaultColor;
     @HostListener('click') mouClick (eventdat:Event)
     {
         this.render.setStyle(this.elemtRef.nativeElement,'background-color','green');
-        this.stringColor=this.hoveredColor;
+        this.stringColor=this.hoveredColor;//this is required for host binding dynamis setting var
     }
     
     @HostListener('mouseleave') movuRemove (eventdat:Event)

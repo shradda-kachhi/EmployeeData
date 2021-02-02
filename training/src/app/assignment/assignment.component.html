@@ -16,3 +16,14 @@
 <button class="btn btn-success" (click)="startGame()">Start Game</button> &nbsp;
 <button class="btn btn-warning" (click)="stopGame()">Stop Game</button> &nbsp;
 {{dynamicCallComponent}}
+
+<h3>Assignment 5</h3>
+<p>wE SHOLD BE ABLE TO ADD AND DELETE FROM A COMMON ARRAY
+    FROM THE SERVICE FROM 2 DIFFRENT COMPONENTS 
+    I.E FROM DIRECTIVE AND ASSIGNMENT
+</p>
+<input class="form-control" #localvar>
+<button class="btn-success" (click)="addTomArray(localvar.value)">Add to array</button>
+<div *ngFor="let a of localarray">
+    <li>{{a}}</li>
+</div>
