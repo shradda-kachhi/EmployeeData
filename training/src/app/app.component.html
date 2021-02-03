@@ -1,7 +1,9 @@
 <!-- parctise -->
-<button class="btn" routerLink="/basics" routerLinkActive="active">Basics</button> &nbsp;
+<!-- We cab even give the route in anchor href but this will make the whole app to reload
+That is why user routerLink -->
+<button class="btn" routerLink="/basics" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Basics</button> &nbsp;
 <button class="btn" routerLink="/assignments" routerLinkActive="active">Assignments</button>&nbsp;
-<button class="btn" routerLink="/directives" routerLinkActive="active">Directives</button>
+<button class="btn" [routerLink]="['/directives']" routerLinkActive="active">Directives</button>
 <router-outlet></router-outlet>
 
 <!--2  This is the course application-->

@@ -12,7 +12,7 @@ const routes :Routes  =[
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],//register routes  this can be done in app module ass well
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

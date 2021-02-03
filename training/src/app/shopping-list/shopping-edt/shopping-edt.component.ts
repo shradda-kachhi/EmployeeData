@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient';
+import { ShoppingService } from '../shopping.service';
 
 @Component({
   selector: 'app-shopping-edt',
@@ -9,16 +10,19 @@ import { Ingredient } from 'src/app/shared/ingredient';
 export class ShoppingEdtComponent implements OnInit {
 @ViewChild('ingredName') ingredName:ElementRef;
 @ViewChild('ingredAmount') ingredAmount :ElementRef;
-@Output() sendIngred= new EventEmitter<Ingredient>();
-  constructor() { }
+//from custom event
+//@Output() sendIngred= new EventEmitter<Ingredient>();
+  constructor(private shopService:ShoppingService) { }
 
   ngOnInit(): void {
   }
 
 
   addIngredient()
-  { 
-this.sendIngred.emit(new Ingredient(this.ingredName.nativeElement.value,
-  this.ingredAmount.nativeElement.value));
+  { //dont need to emit anything just call service method
+//this.sendIngred.emit(new Ingredient(this.ingredName.nativeElement.value, this.ingredAmount.nativeElement.value));
+  
+this.shopService.addIngredients(new Ingredient(this.ingredName.nativeElement.value,
+   this.ingredAmount.nativeElement.value));
   }
 }

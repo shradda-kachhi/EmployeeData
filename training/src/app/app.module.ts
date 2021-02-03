@@ -18,6 +18,7 @@ import { BasicHighlightDirective } from './directives/first-highlight.directive'
 import { CustomSTructureDirective } from './directives/structure-comp.directive';
 import { appDropDownDirective } from './shared/dropdown.directive';
 import { InterComponentCommmService } from './interComponent.service';
+import { ShoppingService } from './shopping-list/shopping.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { InterComponentCommmService } from './interComponent.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [InterComponentCommmService],
+  providers: [InterComponentCommmService,ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

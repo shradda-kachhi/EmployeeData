@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Recipie } from '../recipie.model';
+import { RecipieService } from '../recipies.service';
 
 @Component({
   selector: 'app-recipie-details',
@@ -8,9 +9,11 @@ import { Recipie } from '../recipie.model';
 })
 export class RecipieDetailsComponent implements OnInit {
 @Input() recipieSelected:Recipie;
-  constructor() { }
+  constructor(private recipieService:RecipieService) { }
 
   ngOnInit(): void {
   }
-
+  addToShoppingList(){
+this.recipieService.addIngredsToShoppingList(this.recipieSelected.ingreds);
+  }
 }
