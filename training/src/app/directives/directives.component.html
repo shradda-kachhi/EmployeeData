@@ -15,3 +15,13 @@
 <div *ngFor="let a of localarray">
     <li>{{a}}</li>
 </div>
+
+<h2>From typescript call the other route</h2>
+<button class="btn btn-success" (click)="routeToaotherComp()">Go to Assignment</button>
+<h2>self route call with params</h2>
+{{user.id}} {{user.name}}
+<!-- if params sscribe is not used this will not updatre the above user -->
+<a routerLink="/directives/25/jwsue">Id 25</a>
+<br>
+<!-- queryParams helps to send params from html and fragment apperas after # -->
+<a routerLink="/directives" [queryParams]="{id:'12',name:'hdhdu'}" fragment="loading">Id 12</a>

@@ -1,11 +1,29 @@
 <!-- parctise -->
 <!-- We cab even give the route in anchor href but this will make the whole app to reload
 That is why user routerLink -->
-<button class="btn" routerLink="/basics" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Basics</button> &nbsp;
+<!-- <button class="btn" routerLink="/basics" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Basics</button> &nbsp;
 <button class="btn" routerLink="/assignments" routerLinkActive="active">Assignments</button>&nbsp;
 <button class="btn" [routerLink]="['/directives']" routerLinkActive="active">Directives</button>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
 
+<div class="container"> 
+    <div class="row">
+<div class="col-sm-10 col-xs-12 col-md-8 col-sm-offset-1 col-md-offset-2">
+<ul class="nav nav-tabs">
+    <!-- routerlinkactive options make sure that the option is active only if exct path is fgiven 
+    if not it will be active for home always -->
+    <li  routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}" ><a routerLink="/basics">Basics</a></li>
+    <li  routerLinkActive="active"><a routerLink="/assignments">Assignments</a></li>
+    <li  routerLinkActive="active"><a [routerLink]="['/directives']">Directives</a></li>
+</ul>
+</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-xs-12 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
 <!--2  This is the course application-->
     <!-- <app-header (componentType)="onComponentLoad($event)"></app-header>
 <app-recipies  *ngIf="selectedComp==='recipie'"></app-recipies>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InterComponentCommmService } from '../interComponent.service';
 
 
@@ -16,7 +17,7 @@ localarray:string[];
  @Output('startGame') startGameEvent = new EventEmitter<number>();
 @Input () dynamicCallComponent :number;
 
-  constructor(private interComponentServiceTalk:InterComponentCommmService) {
+  constructor(private interComponentServiceTalk:InterComponentCommmService,private actRoute:ActivatedRoute) {
       //This essage will suscribe to the event emitted from the directive component
   //to check the inter component communication if an eventEmitter present inside  a
   //sertvice used byu both component
@@ -27,6 +28,9 @@ localarray:string[];
 
   ngOnInit(): void {
     this.localarray =this.interComponentServiceTalk.shartedarray;
+    //retreive  the query para,meters from active route
+    console.log(this.actRoute.snapshot.queryParams.name);
+    console.log(this.actRoute.snapshot.fragment);
   }
   togFun()
   {

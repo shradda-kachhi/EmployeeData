@@ -7,7 +7,8 @@ import { DirectivesComponent } from './directives/directives.component';
 const routes :Routes  =[
   {path :'basics',component :FirstComponent},
   {path : 'assignments',component :AssignmentComponent},
-  {path : 'directives',component :DirectivesComponent}
+  {path : 'directives',component :DirectivesComponent},
+  {path : 'directives/:id/:name',component :DirectivesComponent}//for dynamic path we add :
 ];
 
 @NgModule({
