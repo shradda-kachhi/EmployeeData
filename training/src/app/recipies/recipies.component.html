@@ -6,10 +6,12 @@
 </div>
 <div class="col-md-7">
   <!-- This is reqiured through custom events -->
-    <app-recipie-details *ngIf="selectedRec ;else info" [recipieSelected]="selectedRec"></app-recipie-details>
+  <!--  <app-recipie-details *ngIf="selectedRec ;else info" [recipieSelected]="selectedRec"></app-recipie-details>
     
-<ng-template #info>
+ <ng-template #info>
 <p> select a reciepie!</p> 
-</ng-template>
+</ng-template> -->
+<!-- This will make recipie start component to show  that plaease selst a recipe -->
+<router-outlet></router-outlet>
 </div>
 </div>

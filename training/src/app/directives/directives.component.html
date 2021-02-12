@@ -25,3 +25,12 @@
 <br>
 <!-- queryParams helps to send params from html and fragment apperas after # -->
 <a routerLink="/directives" [queryParams]="{id:'12',name:'hdhdu'}" fragment="loading">Id 12</a>
+
+<h3>Creating button to set authentication onN on child routes</h3>
+<button class="btn btn-primary" (click)="logIn()">Login</button> &nbsp; 
+<button class="btn btn-danger" (click)="logOut()">Logout</button>
+<p>this will call the child only if we are loggedin otherwise navigate to basics</p>
+<a routerLink="/directives/25/jwsue">Id 25</a>
+
+<!--This outlet will make the child component to load here only-->
+<router-outlet></router-outlet>

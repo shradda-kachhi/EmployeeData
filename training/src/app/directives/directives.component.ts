@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { AuthGuard } from '../auth-guard.service';
+import { DummyAuthenticator } from '../dummy-authenticator.service';
 import { InterComponentCommmService } from '../interComponent.service';
 
 @Component({
@@ -10,7 +12,7 @@ import { InterComponentCommmService } from '../interComponent.service';
 export class DirectivesComponent implements OnInit {
 
   constructor(private injectService :InterComponentCommmService,
-    private router:Router,private activeRoute :ActivatedRoute) { }
+    private router:Router,private activeRoute :ActivatedRoute,private authService:DummyAuthenticator) { }
 
   booleanVar =false;
   localarray:string[];
@@ -45,5 +47,14 @@ this.activeRoute.params.subscribe((param:Params)=>{
 //this.router.navigate(['../directives',1,'shgter'],{queryParams:{id:1,name:'sbefj'},fragment:'yhewuyryh'})
  
 
-this.router.navigate(['assignments'],{queryParams:{id:1,name:'fedtyeh'},fragment:'yeryerhj'});}
+this.router.navigate(['assignments'],{queryParams:{id:1,name:'fedtyeh'},fragment:'yeryerhj'});
+}
+
+logOut(){
+this.authService.logout();
+}
+
+logIn(){
+  this.authService.login();
+}
 }

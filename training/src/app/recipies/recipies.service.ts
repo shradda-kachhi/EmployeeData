@@ -10,7 +10,7 @@ export class RecipieService{
         new Recipie('Schnitzel','fries fries',
         'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
         [new Ingredient('Meat',1),new Ingredient('fries',15)]),
-        new Recipie('burger','sour sweet',
+        new Recipie('Burger','sour sweet',
         'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
         [new Ingredient('potato chap',1),new Ingredient('Bread',2)])//all images cannot be shown 
       ];
@@ -24,6 +24,11 @@ export class RecipieService{
 
       addIngredsToShoppingList(ingreds:Ingredient[]){
 this.shopServ.addIngredientsList(ingreds);
+      }
+
+      getRecipie(index:number)
+      {
+            return this.recipieList[index];
       }
     
 }

@@ -13,10 +13,10 @@ export class RecipieItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @Input() recipieList:Recipie[];
-  @Output() sendDetails =new EventEmitter<Recipie>();
+ @Input() recipieList:Recipie[];
+  //@Output() sendDetails =new EventEmitter<Recipie>();
 
   sendReciDetails(re:Recipie){
-this.sendDetails.emit(re);
+//this.sendDetails.emit(re);
   }
 }

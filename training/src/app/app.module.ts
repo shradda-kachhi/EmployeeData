@@ -19,6 +19,10 @@ import { CustomSTructureDirective } from './directives/structure-comp.directive'
 import { appDropDownDirective } from './shared/dropdown.directive';
 import { InterComponentCommmService } from './interComponent.service';
 import { ShoppingService } from './shopping-list/shopping.service';
+import { AuthGuard } from './auth-guard.service';
+import { DummyAuthenticator } from './dummy-authenticator.service';
+import { RescipieStartComponent } from './recipies/rescipie-start/rescipie-start.component';
+import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,9 @@ import { ShoppingService } from './shopping-list/shopping.service';
     DirectivesComponent,
     BasicHighlightDirective,
     CustomSTructureDirective,
- appDropDownDirective
+ appDropDownDirective,
+ RescipieStartComponent,
+ RecipieEditComponent
 
   ],
   imports: [
@@ -44,7 +50,7 @@ import { ShoppingService } from './shopping-list/shopping.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [InterComponentCommmService,ShoppingService],
+  providers: [InterComponentCommmService,ShoppingService,AuthGuard,DummyAuthenticator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

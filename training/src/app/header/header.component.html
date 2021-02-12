@@ -5,15 +5,20 @@
 </div>
 <div class =" navbar-default">
 <ul class="nav navbar-nav">
-    <li> <a href="#" (click)="componentTypeSelect('recipie')"> Recipies</a>  </li>
-    <li> <a href="#" (click)="componentTypeSelect('shopping')"> Shopping</a> </li>
+    <!-- This is dne through input output -->
+    <!-- <li> <a href="#" (click)="componentTypeSelect('recipie')"> Recipies</a>  </li>
+    <li> <a href="#" (click)="componentTypeSelect('shopping')"> Shopping</a> </li> -->
+
+    <!-- through Routers -->
+<li routerLinkActive="active"> <a routerLink="recipie" > Recipies</a>  </li>
+<li  routerLinkActive="active"> <a  routerLink="shopping"> Shopping</a> </li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <li class="dropdown" appDrop>
-    <a href="#" class="dropdown-toggle" role="button"> Manage Item <span class="caret"></span></a>
-    <ul class="dropdown-menu" >
-        <li><a href="#">Save</a></li>
-        <li><a href="#">Fetch</a></li>
+    <a class="dropdown-toggle" role="button"> Manage Item <span class="caret"></span></a>
+    <ul style="cursor:pointer ;" class="dropdown-menu" >
+        <li><a >Save</a></li>
+        <li><a >Fetch</a></li>
     </ul>
 </li>
 </ul>

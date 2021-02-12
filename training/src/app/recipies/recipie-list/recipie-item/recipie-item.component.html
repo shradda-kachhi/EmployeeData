@@ -1,8 +1,11 @@
-<a class="list-group-item clearfix" href="#" *ngFor="let re of recipieList" (click)="sendReciDetails(re)"> 
+<a style="cursor:pointer ;"
+[routerLink]="[i]" routerLinkActive="active"
+class="list-group-item clearfix" *ngFor="let re of recipieList; let i = index " > 
+<!-- (click)="sendReciDetails(re)" was used before with output input to send the details -->
     <div  class="pull-left">
         <h4 class="list-group-item-heading">{{re.recipieName}}</h4>
         <p class="list-group-item-text">{{re.description}}</p>
-       
+      
     </div>
     <span class ="pull-right">
         <img  src="{{re.recipieImg}}" alt ="img" class="img-responsive" style="max-height: 50px;">
