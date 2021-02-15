@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { InterComponentCommmService } from '../interComponent.service';
 
 
@@ -8,12 +9,14 @@ import { InterComponentCommmService } from '../interComponent.service';
   templateUrl: './assignment.component.html',
   styleUrls: ['./assignment.component.css']
 })
-export class AssignmentComponent implements OnInit {
+export class AssignmentComponent implements OnInit ,OnDestroy{
  toggle=false;
  timeList =[];
 id:any;
 counter=1;
 localarray:string[];
+observCheck:Subscription;
+
  @Output('startGame') startGameEvent = new EventEmitter<number>();
 @Input () dynamicCallComponent :number;
 
@@ -25,12 +28,14 @@ localarray:string[];
       (statusFromDirectComp:string)=>alert('This is oinside assignment comp,but this is from directive comp 12456'+statusFromDirectComp)
     )
    }
+  
 
   ngOnInit(): void {
     this.localarray =this.interComponentServiceTalk.shartedarray;
     //retreive  the query para,meters from active route
     console.log(this.actRoute.snapshot.queryParams.name);
     console.log(this.actRoute.snapshot.fragment);
+    this.customCountObservable();
   }
   togFun()
   {
@@ -55,5 +60,20 @@ clearInterval(this.id);
     this.interComponentServiceTalk.addToArray(str);
   }
 
+  customCountObservable(){
+const customObserver= new  Observable(observer =>{
+  let count = 0;
+setInterval(()=>{
+  observer.next(count);
+  count++;
+},1000)
+});
+this.observCheck=customObserver.subscribe((data)=>{
+  console.log('this is from custom observer '+ data);});
+
+  }
   
+  ngOnDestroy(): void {
+  this.observCheck.unsubscribe();
+  }
 }
