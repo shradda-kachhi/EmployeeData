@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { InterComponentCommmService } from '../interComponent.service';
+import { map ,filter,} from 'rxjs/operators';
 
 
 @Component({
@@ -64,12 +65,30 @@ clearInterval(this.id);
 const customObserver= new  Observable(observer =>{
   let count = 0;
 setInterval(()=>{
-  observer.next(count);
+  observer.next(count);//emits new value
+  if(count===2)
+  {
+    observer.complete();//completes  as an http  observable completes once response is given
+  }
+  if(count==3)
+  {
+    observer.error(new Error('message for error custom observcer')); //throw error
+  }
   count++;
 },1000)
 });
+
+//use diffrent operators with pipe function on observable to change 
+//it acordinggly but just  like java streams it only manipulate on copy
+//original data remeins intact.
+//pipe can take any number ofg prams that are operators
+customObserver.pipe(filter((data)=>{return data>1}),map((data)=>{ return 'from map '+ data})).subscribe
+((dat)=>console.log(dat));
+//we can suscribe it any whwere
 this.observCheck=customObserver.subscribe((data)=>{
-  console.log('this is from custom observer '+ data);});
+  console.log('this is from custom observer '+ data);},err=>{
+    alert(err);
+  },()=>console.log('this argument can be givn in case observable is completed and it is never shown if error occurs'));
 
   }
   
