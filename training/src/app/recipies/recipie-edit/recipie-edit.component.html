@@ -1,1 +1,66 @@
-<p>recipie-edit works!</p>
+<div class="row" >
+    <div class="col-xs-12">
+        <form [formGroup]="recipieForm" (ngSubmit)="onSubmit()" >
+            <div class="row" >
+                <button type =" submit" class="btn btn-primary" >Save</button>&nbsp;
+                <button class="btn btn-danger" >Delete</button>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="recName" >Recipie Name</label>
+                        <input  formControlName="recName" id="recName" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="imgPath" >Image Path</label>
+                        <input id="imgPath"   formControlName="imgPath" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src="" alt="Recipie Img" class="img-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea   formControlName="description" id="description" rows="6"  class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+               
+                    <div class="col-xs-12" formArrayName="ingredientList">
+                        <div class="row" [formGroupName]="i" *ngFor="let ingre of ingredList();let i=index"
+                        style="padding: 5px;">
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" formControlName="ingredName">
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="number" class="form-control" formControlName="ingredAmnt">
+                            </div>
+                            <div class="col-xs-2">
+                                <button class="btn btn-danger">remove</button>
+                            </div>
+                        </div>
+                        <hr style="border-color:grey;border-width: 1px;">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button type="button" class="btn btn-success" (click)="addIngredient()">
+                                    Add More Ingreds
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                
+            </div>
+        </form>
+    </div>
+</div>

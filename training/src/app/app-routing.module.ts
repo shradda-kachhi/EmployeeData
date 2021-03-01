@@ -9,8 +9,11 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RescipieStartComponent } from './recipies/rescipie-start/rescipie-start.component';
 import { RecipieDetailsComponent } from './recipies/recipie-details/recipie-details.component';
 import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 const routes :Routes  =[
+  
+  {path :'loginForm',component :LoginFormComponent},
   {path :'basics',component :FirstComponent},
   {path : 'assignments',/*canActivate:[AuthGuard],*/component :AssignmentComponent},
   //the canActivate tells only go to this route if AuthGuard is returning true
@@ -19,7 +22,7 @@ const routes :Routes  =[
     {path : ':id/:name',component :DirectivesComponent},
 ]},
 
-{path:'',redirectTo:'/recipie',pathMatch:'full'},
+//{path:'',redirectTo:'/recipie',pathMatch:'full'},
 {path:'recipie',component:RecipiesComponent,
 children:[
   {path:'',component:RescipieStartComponent},

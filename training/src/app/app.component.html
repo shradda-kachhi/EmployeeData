@@ -3,13 +3,14 @@
 That is why user routerLink -->
 <!-- <button class="btn" routerLink="/basics" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Basics</button> &nbsp;
 <button class="btn" routerLink="/assignments" routerLinkActive="active">Assignments</button>&nbsp;
-<button class="btn" [routerLink]="['/directives']" routerLinkActive="active">Directives</button>
+<button class="btn" [routerLink]="['/directives']" routerLinkActive="active">Directives</button>&nbsp;
+<button class="btn" [routerLink]="['/loginForm']" routerLinkActive="active">loginForm</button> 
 <router-outlet></router-outlet> -->
 
  <!-- routerlinkactive options make sure that the option is active only if exct path is fgiven 
       if not it will be active for home always -->
 
-<div class="container"> 
+<!-- <div class="container"> 
     <div class="row">
 <div class="col-sm-10 col-xs-12 col-md-8 col-sm-offset-1 col-md-offset-2">
 <ul class="nav nav-tabs">
@@ -25,7 +26,7 @@ That is why user routerLink -->
             <router-outlet></router-outlet>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <!--2  This is the course application-->
@@ -36,9 +37,9 @@ That is why user routerLink -->
 
 <app-shopping-list  *ngIf="selectedComp==='shopping'"></app-shopping-list>  -->
 
-<!-- 
+
 <app-header></app-header>
-<router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
 
 <!-- 3 This is to test intercomponent calls-->
 <!-- <app-first *ngFor="let dynamicTest of appDynamicList" [dynProperty]="dynamicTest"

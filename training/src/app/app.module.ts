@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FirstComponent } from './firstComponent/first.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
@@ -23,6 +23,7 @@ import { AuthGuard } from './auth-guard.service';
 import { DummyAuthenticator } from './dummy-authenticator.service';
 import { RescipieStartComponent } from './recipies/rescipie-start/rescipie-start.component';
 import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -41,14 +42,16 @@ import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.compo
     CustomSTructureDirective,
  appDropDownDirective,
  RescipieStartComponent,
- RecipieEditComponent
+ RecipieEditComponent,
+ LoginFormComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [InterComponentCommmService,ShoppingService,AuthGuard,DummyAuthenticator],
   bootstrap: [AppComponent]

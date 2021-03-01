@@ -1,10 +1,14 @@
 
 import { EventEmitter, Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 import { Ingredient } from "../shared/ingredient";
 import { ShoppingService } from "../shopping-list/shopping.service";
 import { Recipie } from "./recipie.model";
 @Injectable() //to make other service injected in this service
 export class RecipieService{
+      //Whenever recipe chaged should emt a event tha is catched byrecipie list compinent
+      recipeListChanged = new Subject<Recipie[]>();
+
   constructor(private shopServ :ShoppingService){}
   recipieList:  Recipie []=[
         new Recipie('Schnitzel','fries fries',
@@ -31,4 +35,13 @@ this.shopServ.addIngredientsList(ingreds);
             return this.recipieList[index];
       }
     
+      updateRec(recId:number,newRecipie:Recipie)
+      {
+            this.recipieList[recId]=newRecipie;
+            this.recipeListChanged.next(this.recipieList.slice());
+      }
+      addNewRecipie(newrec:Recipie){
+            this.recipieList.push(newrec);
+            this.recipeListChanged.next(this.recipieList.slice());
+      }
 }

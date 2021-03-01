@@ -1,0 +1,57 @@
+<div  class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div formGroupName="userData">
+                <div class="form-group"> 
+                        <label for="userName">UserName</label>
+                        <input formControlName="userName" type="text" class="form-control" id="userName">
+                </div>
+                <span  
+                *ngIf ="!signupForm.get('userData.userName').valid && signupForm.get('userData.userName').touched"
+                 class ="help-block">
+                 <span *ngIf ="signupForm.get('userData.userName').errors['NameForbidden']">
+                    please enter a valid username!
+                </span>
+                
+                <span *ngIf ="signupForm.get('userData.userName').errors['required']">
+                  enter a username
+                </span>
+                </span>
+                <div class="form-group"> 
+                    <label for="email">Email</label>
+                    <input formControlName="email" type="email" class="form-control" id="email">
+                </div>
+                <span  
+                *ngIf ="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched"
+                 class ="help-block">
+                    please enter a valid email!
+                </span>
+                </div>
+                <div class="radio" *ngFor = "let gender of genders"> 
+                    <label> 
+                    <input formControlName="gender" type="radio" [value]="gender">{{gender}}</label>
+                   
+                </div>
+                <div formArrayName="hobbies">
+                    <button class="btn btn-debug" type="button" (click)="addHobby()"> Add Hobbies</button>
+                
+                <div class="form-group" *ngFor="let hobby of myhobbies(); let i=index" >
+                  <input type="text" class="form-control"  [formControlName]="i">
+                </div>
+
+                <div class="form-group">
+                    <label for="notify">notification</label>
+                    <select id ="notify" class="form-control">
+                        <option>Send</option>
+                        <option>Don't Send</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group" > 
+                    <button  [disabled]="!signupForm.valid" class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
